@@ -5,6 +5,7 @@ const app = new express();
 app.use(cors());
 app.use(bodyParser.json()); 
 app.use(bodyParser.urlencoded({ extended: true }));
+const port = process.env.PORT || 3000
 
 // const User = require('./models/userSchema')
 // const Blogs = require('./models/blogSchema');
@@ -92,6 +93,6 @@ app.get('/test', (req,res)=>{
     res.json({status:'sucess'})
 })
 
-app.listen(1234,()=>{
+app.listen(port,()=>{
     console.log('server is running up')
 })
