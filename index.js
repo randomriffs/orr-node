@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const path = require('path');
 const app = new express();
 app.use(cors());
 app.use(bodyParser.json()); 
@@ -11,12 +12,18 @@ const User = require('./models/userSchema')
 const Blogs = require('./models/blogSchema');
 const Tasks = require('./models/taskSchema')
 
+app.use(express.static(path.join(__dirname, 'build')));
+
 
 // User.create({
 //     name: 'test name',
 //     email: 'email',.b
 //     password: 'password'
 // });
+
+app.get('/', function (req, res) {
+    res.sendFile(path.join(__dirname+'/build/index.html'));
+  });
 
 app.post('/api/login', (req, res) => {
     let userStatus = {}
