@@ -153,7 +153,7 @@ app.get('/api/random', (req, res) => {
             console.log('total sayings', sayings.length)
             console.log('random saying id', randomSaying)
             console.log(sayings[randomSaying])
-            res.json({ status: true, sayings: sayings[randomSaying] })
+            res.json({ status: true, sayings: sayings[randomSaying],film:filmList[randomFilm]})
 
         } else {
             // doc.data() will be undefined in this case
