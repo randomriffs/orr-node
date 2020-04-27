@@ -8,6 +8,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 const port = process.env.PORT || 3002;
 var fs = require('fs');
+
+// firebase
+
 var admin = require("firebase-admin");
 var serviceAccount = require("./config/words-movies-firebase-adminsdk-udl0t-722049ea9f.json");
 admin.initializeApp({
@@ -15,9 +18,62 @@ admin.initializeApp({
     databaseURL: "https://words-movies.firebaseio.com"
 });
 let db = admin.firestore();
+
+// movie list
+
 let filmList = ['dunkirk', 'forrest-gump', 'moonlight', 'no-country-for-old-men', 'pulp-fiction', 'spotlight', 'blood-diamond'
     , 'django-unchained', 'fight-club', 'inglourious-basterds', 'cuckoo-nest', 'reservoir-dogs', 'monte-cristo', 'godfather'
     , 'grand-budapest', 'godfather-2']
+// twit config 
+
+const Twit = require('twit');
+const config = require('./config/twit');
+const Twitter = new Twit(config);
+
+tweetSaying = () => {
+    let tweet = {
+        status: ''
+    }
+    // getting data from firebase 
+
+    let totalFilmList = filmList.length
+    let randomFilm = Math.floor(Math.random() * totalFilmList)
+    console.log(filmList[randomFilm])
+    var docRef = db.collection("words").doc(filmList[randomFilm]);
+    docRef.get().then(function (doc) {
+        if (doc.exists) {
+            let sayings = doc.data().data;
+            let totalSayings = sayings.length - 1;
+            let randomSaying = Math.floor(Math.random() * totalSayings) + 1
+            console.log('total sayings', sayings.length)
+            console.log('random saying id', randomSaying)
+            console.log(sayings[randomSaying])
+            // res.json({ status: true, sayings: sayings[randomSaying].toLowerCase(), film: filmList[randomFilm] })
+            tweet.status = sayings[randomSaying].toLowerCase().replace(/ /g, "")
+            Twitter.post('statuses/update', tweet, tweeted)
+            function tweeted(err, data, response) {
+                if (err) {
+                    console.log("Something went wrong!", err);
+                }
+                else {
+                    console.log("Voila It worked!");
+                }
+            }
+        } else {
+            // doc.data() will be undefined in this case
+            console.log("No such document!");
+            // res.json({ status: false })
+        }
+    }).catch(function (error) {
+        console.log("Error getting document:", error);
+    });
+}
+
+setInterval(tweetSaying, 60000);
+
+
+
+// schema
 
 const User = require('./models/userSchema')
 const Blogs = require('./models/blogSchema');
@@ -134,10 +190,10 @@ app.post('/api/edit-post', (req, res) => {
 app.post('/api/delete-task', (req, res) => {
     console.log('resssssss', req.body)
     Tasks.deleteOne({ "_id": Object(req.body.id) }).then((data) => {
-            if (data) {
-                getAllTask(req, res)
-            }
-        })
+        if (data) {
+            getAllTask(req, res)
+        }
+    })
 })
 
 app.get('/api/random', (req, res) => {
@@ -153,7 +209,7 @@ app.get('/api/random', (req, res) => {
             console.log('total sayings', sayings.length)
             console.log('random saying id', randomSaying)
             console.log(sayings[randomSaying])
-            res.json({ status: true, sayings: sayings[randomSaying].toLowerCase(),film:filmList[randomFilm]})
+            res.json({ status: true, sayings: sayings[randomSaying].toLowerCase(), film: filmList[randomFilm] })
 
         } else {
             // doc.data() will be undefined in this case
@@ -193,6 +249,8 @@ app.get('/api/random', (req, res) => {
 //         console.log('data saved')
 //     }).catch((err) => console.log(err))
 // });
+
+
 
 
 app.listen(port, () => {
