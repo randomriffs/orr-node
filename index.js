@@ -49,7 +49,7 @@ tweetSaying = () => {
             console.log('random saying id', randomSaying)
             console.log(sayings[randomSaying])
             // res.json({ status: true, sayings: sayings[randomSaying].toLowerCase(), film: filmList[randomFilm] })
-            tweet.status = sayings[randomSaying].toLowerCase().replace(/ /g, "")
+            tweet.status = sayings[randomSaying].toLowerCase() // .replace(/ /g, "")
             Twitter.post('statuses/update', tweet, tweeted)
             function tweeted(err, data, response) {
                 if (err) {
