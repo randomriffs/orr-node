@@ -95,8 +95,8 @@ tweetSaying = () => {
         console.log("Error getting document:", error);
     });
 }
-
-setInterval(tweetSaying, 1000*180);
+tweetSaying();
+setInterval(tweetSaying, 1000*900);
 
 
 
