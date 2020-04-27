@@ -23,7 +23,34 @@ let db = admin.firestore();
 
 let filmList = ['dunkirk', 'forrest-gump', 'moonlight', 'no-country-for-old-men', 'pulp-fiction', 'spotlight', 'blood-diamond'
     , 'django-unchained', 'fight-club', 'inglourious-basterds', 'cuckoo-nest', 'reservoir-dogs', 'monte-cristo', 'godfather'
-    , 'grand-budapest', 'godfather-2']
+    , 'grand-budapest', 'godfather-2', 'catch-22', 'catch-me-if-you-can', 'hacksaw-ridge', 'inception', 'into-the-wild', '1984'
+    , 'rango','the-grapes-of-wrath','to-kill-a-mokingbird','whiplash']
+
+
+// fs.readFile('./subtitlefiles/whiplash.720p.BluRay.x264.YIFY.srt', 'utf8', function (err, data) {
+//     if (err) throw err;
+//     let arrowSplitData = data.split('-->')
+//     let dataRemovedData = arrowSplitData.filter(data => data !== 'data');
+//     let dialogue = []
+//     dataRemovedData.forEach((data) => {
+//         let onlyDialogue = data.replace(/[^A-Za-z, .?!']+/g, ' ');
+//         let removedComma = onlyDialogue.slice(4, onlyDialogue.length - 4);
+//         if (removedComma[0] === 'i') {
+//         } else {
+//             dialogue.push(removedComma.replace(/^\s+/g, ''));
+//         }
+//     })
+//     let removeFirstAndLast = dialogue.slice(10, dialogue.length - 10)
+//     console.log('removeFirstAndLast', removeFirstAndLast)
+
+//     db.collection("words").doc('whiplash').set({
+//         data: removeFirstAndLast
+//     }, { merge: true }).then(() => {
+//         console.log('data saved')
+//     }).catch((err) => console.log(err))
+// });
+
+
 // twit config 
 
 const Twit = require('twit');
@@ -48,8 +75,8 @@ tweetSaying = () => {
             console.log('total sayings', sayings.length)
             console.log('random saying id', randomSaying)
             console.log(sayings[randomSaying])
-            // res.json({ status: true, sayings: sayings[randomSaying].toLowerCase(), film: filmList[randomFilm] })
-            tweet.status = sayings[randomSaying].toLowerCase() // .replace(/ /g, "")
+            // res.json({ status: true, sayings: sayings[randomSaying], film: filmList[randomFilm] })
+            tweet.status = sayings[randomSaying] // .replace(/ /g, "")
             Twitter.post('statuses/update', tweet, tweeted)
             function tweeted(err, data, response) {
                 if (err) {
@@ -226,29 +253,7 @@ app.get('/api/random', (req, res) => {
 // extracting words 
 
 
-// fs.readFile('./subtitlefiles/The.Godfather.Part.II.1974.BRRip.XviD.AC3.D-Z0N3 (English).srt', 'utf8', function (err, data) {
-//     if (err) throw err;
-//     let arrowSplitData = data.split('-->')
-//     let dataRemovedData = arrowSplitData.filter(data => data !== 'data');
-//     let dialogue = []
-//     dataRemovedData.forEach((data) => {
-//         let onlyDialogue = data.replace(/[^A-Za-z, .?!']+/g, '');
-//         let removedComma = onlyDialogue.slice(2, onlyDialogue.length - 2);
-//         let removedI = ''
-//         if (removedComma[0] === 'i') {
-//             removedI = removedComma.slice(2, removedComma.length - 2)
-//         }
-//         dialogue.push(removedComma.trim(' '));
-//     })
-//     let removeFirstAndLast = dialogue.slice(10, dialogue.length - 10)
-//     console.log('removeFirstAndLast', removeFirstAndLast)
 
-//     db.collection("words").doc('godfather-2').set({
-//         data: removeFirstAndLast
-//     }, { merge: true }).then(() => {
-//         console.log('data saved')
-//     }).catch((err) => console.log(err))
-// });
 
 
 
