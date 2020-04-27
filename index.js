@@ -69,7 +69,7 @@ tweetSaying = () => {
     });
 }
 
-setInterval(tweetSaying, 60000);
+setInterval(tweetSaying, 1000*180);
 
 
 
