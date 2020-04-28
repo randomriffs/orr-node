@@ -43,6 +43,6 @@ module.exports.tweet = () => {
 
     }
     bookLogging();
-    setInterval(bookLogging, 1000 * 3600);
+    setInterval(bookLogging, 1000 * 1980);
 }
 

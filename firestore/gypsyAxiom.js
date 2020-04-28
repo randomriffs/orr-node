@@ -50,6 +50,6 @@ module.exports.tweet = () => {
         });
     }
     tweetSaying();
-    setInterval(tweetSaying, 1000 * 1800);
+    setInterval(tweetSaying, 1000 * 900);
 }
 
