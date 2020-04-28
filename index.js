@@ -18,6 +18,10 @@ app.use('/', router);
 // var addWordsToGypsy= require('./modules/addDataGypsyaxiom')
 // addWordsToGypsy.addWords();
 
+//book logs
+var bookLogs=require('./firestore/bookLogs')
+bookLogs.tweet();
+
 app.listen(port, () => {
     console.log('server is running up')
 })
