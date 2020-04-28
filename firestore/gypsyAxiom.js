@@ -1,29 +1,22 @@
-module.exports.tweet=()=>{
-    var admin = require("firebase-admin");
-    var serviceAccount = require("../config/words-movies-firebase-adminsdk-udl0t-722049ea9f.json");
-    admin.initializeApp({
-        credential: admin.credential.cert(serviceAccount),
-        databaseURL: "https://words-movies.firebaseio.com"
-    });
-    let db = admin.firestore();
-    
-    // movie list
-    
+module.exports.tweet = () => {
+
+    var gypsyModule = require('./db')
+    var db = gypsyModule.gypsy.firestore();
     let filmList = ['dunkirk', 'forrest-gump', 'moonlight', 'no-country-for-old-men', 'pulp-fiction', 'spotlight', 'blood-diamond'
         , 'django-unchained', 'fight-club', 'inglourious-basterds', 'cuckoo-nest', 'reservoir-dogs', 'monte-cristo', 'godfather'
         , 'grand-budapest', 'godfather-2', 'catch-22', 'catch-me-if-you-can', 'hacksaw-ridge', 'inception', 'into-the-wild', '1984'
-        , 'rango','the-grapes-of-wrath','to-kill-a-mokingbird','whiplash']
-    
+        , 'rango', 'the-grapes-of-wrath', 'to-kill-a-mokingbird', 'whiplash']
+
     const Twit = require('twit');
     const config = require('../config/twit');
     const Twitter = new Twit(config);
-    
+
     tweetSaying = () => {
         let tweet = {
             status: ''
         }
         // getting data from firebase 
-    
+
         let totalFilmList = filmList.length
         let randomFilm = Math.floor(Math.random() * totalFilmList)
         console.log(filmList[randomFilm])
@@ -57,6 +50,6 @@ module.exports.tweet=()=>{
         });
     }
     tweetSaying();
-    setInterval(tweetSaying, 1000*1800);
+    setInterval(tweetSaying, 1000 * 1800);
 }
 

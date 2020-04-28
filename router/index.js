@@ -1,27 +1,17 @@
 var express = require('express');
+const app = new express();
 var router = express.Router();
 const bodyParser = require('body-parser');
-const cors = require('cors');
-const path = require('path');
-const app = new express();
-app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-const port = process.env.PORT || 3002;
 
 let filmList = ['dunkirk', 'forrest-gump', 'moonlight', 'no-country-for-old-men', 'pulp-fiction', 'spotlight', 'blood-diamond'
 , 'django-unchained', 'fight-club', 'inglourious-basterds', 'cuckoo-nest', 'reservoir-dogs', 'monte-cristo', 'godfather'
 , 'grand-budapest', 'godfather-2', 'catch-22', 'catch-me-if-you-can', 'hacksaw-ridge', 'inception', 'into-the-wild', '1984'
 , 'rango', 'the-grapes-of-wrath', 'to-kill-a-mokingbird', 'whiplash']
 
-var admin = require("firebase-admin");
-var serviceAccount = require("../config/words-movies-firebase-adminsdk-udl0t-722049ea9f.json");
-admin.initializeApp({
-    credential: admin.credential.cert(serviceAccount),
-    databaseURL: "https://words-movies.firebaseio.com"
-});
-let db = admin.firestore();
-
+var gypsyModule = require('../firestore/db')
+var db = gypsyModule.gypsy.firestore();
 
 const User = require('../models/userSchema')
 const Blogs = require('../models/blogSchema');
@@ -34,10 +24,10 @@ const Tasks = require('../models/taskSchema')
 //     email: 'email',.b
 //     password: 'password'
 // });
-app.use(express.static(path.join(__dirname, 'static')))
+// app.use(express.static(path.join(__dirname, 'static')))
 
 router.get('/', function (req, res) {
-   res.sendFile(path.join(__dirname, 'static', 'index.html'))
+   res.send('Server is running')
 });
 
 router.post('/api/login', (req, res) => {
