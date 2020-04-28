@@ -10,9 +10,9 @@ const port = process.env.PORT || 3002;
 var router = express.Router();
 var router= require('./router/index');
 app.use('/', router);
-// gypsyAxiom
-// var gypsyAxiom = require('./firestore/gypsyAxiom')
-// gypsyAxiom.tweet();
+gypsyAxiom
+var gypsyAxiom = require('./firestore/gypsyAxiom')
+gypsyAxiom.tweet();
 
 // add words to gypsyAxiom
 // var addWordsToGypsy= require('./modules/addDataGypsyaxiom')
