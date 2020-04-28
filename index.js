@@ -16,13 +16,13 @@ app.use('/', router);
 var gypsyAxiom = require('./firestore/gypsyAxiom')
 gypsyAxiom.tweet();
 
+// book logs
+var bookLogs=require('./firestore/bookLogs')
+bookLogs.tweet();
+
 // add words to gypsyAxiom
 // var addWordsToGypsy= require('./modules/addDataGypsyaxiom')
 // addWordsToGypsy.addWords();
-
-//book logs
-var bookLogs=require('./firestore/bookLogs')
-bookLogs.tweet();
 
 app.listen(port, () => {
     console.log('server is running up')

@@ -13,18 +13,12 @@ let filmList = ['dunkirk', 'forrest-gump', 'moonlight', 'no-country-for-old-men'
 var gypsyModule = require('../firestore/db')
 var db = gypsyModule.gypsy.firestore();
 
+var bookLogModule = require('../firestore/db')
+var bookLogDb  = bookLogModule.bookLogs.firestore()
+
 const User = require('../models/userSchema')
 const Blogs = require('../models/blogSchema');
 const Tasks = require('../models/taskSchema')
-
-
-
-// User.create({
-//     name: 'test name',
-//     email: 'email',.b
-//     password: 'password'
-// });
-// app.use(express.static(path.join(__dirname, 'static')))
 
 router.get('/', function (req, res) {
    res.send('Server is running')
@@ -159,5 +153,32 @@ router.get('/api/random', (req, res) => {
     });
 
 })
+
+
+router.get('/api/random/books', (req, res) => {
+   let bookSize = 515;
+   let randomBookList = Math.floor(Math.random() * bookSize);
+   console.log('randomBookList', randomBookList)
+   var docRef = bookLogDb.collection("bookList").doc("page-" + randomBookList);
+   docRef.get().then(function (doc) {
+       if (doc.exists) {
+           let books = doc.data().list;
+           let booksLength = books.length - 1;
+           let randomBook = Math.floor(Math.random() * booksLength) + 1
+           let book = books[randomBook];
+           console.log('book', book)
+           res.json({data:book})
+       } else {
+           // doc.data() will be undefined in this case
+           console.log("No such document!");
+           // res.json({ status: false })
+       }
+   }).catch(function (error) {
+       console.log("Error getting document:", error);
+   });
+
+})
+
+
 
 module.exports = router;
