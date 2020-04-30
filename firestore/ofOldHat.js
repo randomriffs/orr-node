@@ -28,7 +28,7 @@ module.exports.tweet = () => {
                 console.log('random verses', randomVerses)
                 console.log(verses[randomVerses])
                 if(verses[randomVerses].length > 33){
-                    tweet.status = verses[randomVerses].toLowerCase();
+                    tweet.status = verses[randomVerses].toLowerCase().replace(/[0-9]/g,'');
                     Twitter.post('statuses/update', tweet, tweeted)
                     function tweeted(err, data, response) {
                         if (err) {
