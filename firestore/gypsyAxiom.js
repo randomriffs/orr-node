@@ -30,16 +30,19 @@ module.exports.tweet = () => {
                 console.log('random saying id', randomSaying)
                 console.log(sayings[randomSaying])
                 // res.json({ status: true, sayings: sayings[randomSaying], film: filmList[randomFilm] })
-                tweet.status = sayings[randomSaying] // .replace(/ /g, "")
-                Twitter.post('statuses/update', tweet, tweeted)
-                function tweeted(err, data, response) {
-                    if (err) {
-                        console.log("Something went wrong!", err);
-                    }
-                    else {
-                        console.log("Voila It worked!");
+                if(sayings[randomSaying].length>33){
+                    tweet.status = sayings[randomSaying] // .replace(/ /g, "")
+                    Twitter.post('statuses/update', tweet, tweeted)
+                    function tweeted(err, data, response) {
+                        if (err) {
+                            console.log("Something went wrong!", err);
+                        }
+                        else {
+                            console.log("Voila It worked!");
+                        }
                     }
                 }
+
             } else {
                 // doc.data() will be undefined in this case
                 console.log("No such document!");

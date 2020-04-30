@@ -24,6 +24,10 @@ ofOldHat.tweet();
 // var addWordsToGypsy= require('./modules/addDataGypsyaxiom')
 // addWordsToGypsy.addWords();
 
+// add verses to ofOldHat
+// var versesOfOldHat = require('./modules/markovChain');
+// versesOfOldHat.markovChain();
+
 app.listen(port, () => {
     console.log('server is running up')
 })

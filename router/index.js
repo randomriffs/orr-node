@@ -10,6 +10,9 @@ let filmList = ['dunkirk', 'forrest-gump', 'moonlight', 'no-country-for-old-men'
 , 'grand-budapest', 'godfather-2', 'catch-22', 'catch-me-if-you-can', 'hacksaw-ridge', 'inception', 'into-the-wild', '1984'
 , 'rango', 'the-grapes-of-wrath', 'to-kill-a-mokingbird', 'whiplash']
 
+let books = ['1984', 'catcher-in-the-rye', 'fahrenheit-451', 'grapes-of-wrath', 'of-mice-and-men', 'orlando',
+            'the-brother-karamazov', 'the-illiad', 'the-odyssey']
+
 var gypsyModule = require('../firestore/db')
 var db = gypsyModule.gypsy.firestore();
 
@@ -176,6 +179,39 @@ router.get('/api/random/books', (req, res) => {
    }).catch(function (error) {
        console.log("Error getting document:", error);
    });
+
+})
+
+router.get('/api/random/verses', (req, res) => {
+    let bookLength = books.length;
+    console.log('bookLength', bookLength)
+    let randomBook =books[Math.floor(Math.random() * bookLength)]
+    // let document = randomBook+
+    let randomSubBook = Math.floor(Math.random()*7)+1;
+
+    console.log('randomHome', randomBook+'-'+randomSubBook);
+    var docRef = db.collection("verses").doc(randomBook+'-'+randomSubBook);
+    docRef.get().then(function (doc) {
+        if (doc.exists) {
+            let verses = doc.data().data;
+            let versesSize = verses.length - 1;
+            let randomVerses = Math.floor(Math.random() * versesSize);
+            console.log('random verses', randomVerses)
+            console.log(verses[randomVerses])
+            res.json({
+                status:true,
+                verse:verses[randomVerses],
+                book:randomBook.replace(/-/g,' ')
+            })
+
+        } else {
+            // doc.data() will be undefined in this case
+            console.log("No such document!");
+            // res.json({ status: false })
+        }
+    }).catch(function (error) {
+        console.log("Error getting document:", error);
+    });
 
 })
 
