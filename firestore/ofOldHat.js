@@ -1,28 +1,26 @@
 module.exports.tweet = () => {
-    var bookLogsModule = require('./db')
-    var db = bookLogsModule.bookLogs.firestore();
+    var ofOldModule = require('./db')
+    var db = ofOldModule.gypsy.firestore()
     const Twit = require('twit');
-    const config = require('../config/bookLogs');
+    const config = require('../config/ofOldHat');
     const Twitter = new Twit(config);
 
-    bookLogging = () => {
+    ofOldHat = () => {
         let tweet = {
             status: 'test'
         }
-        let bookSize = 515;
-        let randomBookList = Math.floor(Math.random() * bookSize);
-        console.log('randomBookList', randomBookList)
-        var docRef = db.collection("bookList").doc("page-" + randomBookList);
+        let homerLength = 5;
+        let randomHomer = Math.floor(Math.random() * homerLength) + 1
+        console.log('randomHome', randomHomer)
+        var docRef = db.collection("verses").doc("homer-" + randomHomer);
         docRef.get().then(function (doc) {
             if (doc.exists) {
-                let books = doc.data().list;
-                let booksLength = books.length - 1;
-                let randomBook = Math.floor(Math.random() * booksLength) + 1
-                let book = books[randomBook];
-                console.log('book', book)
-                tweet.status = `${book.bookName} - ${book.author}
-                
-                ${book.bookUrl}`
+                let verses = doc.data().data;
+                let versesSize = verses.length - 1;
+                let randomVerses = Math.floor(Math.random() * versesSize);
+                console.log('random verses', randomVerses)
+                console.log(verses[randomVerses])
+                tweet.status = verses[randomVerses].toLowerCase();
                 Twitter.post('statuses/update', tweet, tweeted)
                 function tweeted(err, data, response) {
                     if (err) {
@@ -40,9 +38,8 @@ module.exports.tweet = () => {
         }).catch(function (error) {
             console.log("Error getting document:", error);
         });
-
     }
-    bookLogging();
-    setInterval(bookLogging, 1000 * 1980);
+    ofOldHat();
+    setInterval(ofOldHat, 1000 * 1980);
 }
 

@@ -16,9 +16,9 @@ app.use('/', router);
 var gypsyAxiom = require('./firestore/gypsyAxiom')
 gypsyAxiom.tweet();
 
-// book logs
-var bookLogs=require('./firestore/bookLogs')
-bookLogs.tweet();
+// of Old Had
+var ofOldHat=require('./firestore/ofOldHat')
+ofOldHat.tweet();
 
 // add words to gypsyAxiom
 // var addWordsToGypsy= require('./modules/addDataGypsyaxiom')
