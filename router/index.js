@@ -4,6 +4,7 @@ var router = express.Router();
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+const path = require('path');
 
 let filmList = ['dunkirk', 'forrest-gump', 'moonlight', 'no-country-for-old-men', 'pulp-fiction', 'spotlight', 'blood-diamond'
 , 'django-unchained', 'fight-club', 'inglourious-basterds', 'cuckoo-nest', 'reservoir-dogs', 'monte-cristo', 'godfather'
@@ -22,9 +23,10 @@ var bookLogDb  = bookLogModule.bookLogs.firestore()
 const User = require('../models/userSchema')
 const Blogs = require('../models/blogSchema');
 const Tasks = require('../models/taskSchema')
+// app.use(express.static(path.join(__dirname, '../../build')));
 
 router.get('/', function (req, res) {
-   res.send('Server is running')
+    res.send('Server is up')
 });
 
 router.post('/api/login', (req, res) => {
