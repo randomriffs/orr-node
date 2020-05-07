@@ -7,15 +7,15 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const path = require('path');
 
 let filmList = ['dunkirk', 'forrest-gump', 'moonlight', 'no-country-for-old-men', 'pulp-fiction', 'spotlight', 'blood-diamond'
-, 'django-unchained', 'fight-club', 'inglourious-basterds', 'cuckoo-nest', 'reservoir-dogs', 'monte-cristo', 'godfather'
-, 'grand-budapest', 'godfather-2', 'catch-22', 'catch-me-if-you-can', 'hacksaw-ridge', 'inception', 'into-the-wild', '1984'
-, 'rango', 'the-grapes-of-wrath', 'to-kill-a-mokingbird', 'whiplash']
+, 'django-unchained', 'fight-club', 'inglourious-basterds', 'reservoir-dogs', 'godfather'
+, 'grand-budapest', 'godfather-2', 'catch-me-if-you-can', 'hacksaw-ridge', 'inception', 'into-the-wild'
+, 'rango', 'whiplash', 'amelie', 'coffee-and-cigarettes', 'the-misfortunates', 'the-white-balloon']
 
 let books = ['1984', 'catcher-in-the-rye', 'fahrenheit-451', 'grapes-of-wrath', 'of-mice-and-men', 'orlando',
             'the-brother-karamazov', 'the-illiad', 'the-odyssey']
 
-var gypsyModule = require('../firestore/db')
-var db = gypsyModule.gypsy.firestore();
+var scriptModule = require('../firestore/db')
+var db = scriptModule.script.firestore();
 
 var bookLogModule = require('../firestore/db')
 var bookLogDb  = bookLogModule.bookLogs.firestore()

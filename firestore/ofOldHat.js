@@ -1,6 +1,6 @@
 module.exports.tweet = () => {
     var ofOldModule = require('./db')
-    var db = ofOldModule.gypsy.firestore()
+    var db = ofOldModule.script.firestore()
     const Twit = require('twit');
     const config = require('../config/ofOldHat');
     const Twitter = new Twit(config);

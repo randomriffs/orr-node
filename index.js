@@ -12,17 +12,17 @@ var router= require('./router/index');
 app.use('/', router);
 
 
-// gypsyAxiom
-var gypsyAxiom = require('./firestore/gypsyAxiom')
-gypsyAxiom.tweet();
+// scriptEcho 
+var scriptEcho = require('./firestore/scriptEcho')
+scriptEcho.tweet();
 
 // of Old Had
 var ofOldHat=require('./firestore/ofOldHat')
 ofOldHat.tweet();
 
-// add words to gypsyAxiom
-// var addWordsToGypsy= require('./modules/addDataGypsyaxiom')
-// addWordsToGypsy.addWords();
+// add words to scriptEcho 
+// var addWordsToScript= require('./modules/addDataScriptEcho')
+// addWordsToScript.addWords();
 
 // add verses to ofOldHat
 // var versesOfOldHat = require('./modules/markovChain');
