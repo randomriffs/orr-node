@@ -50,6 +50,6 @@ module.exports.tweet = () => {
         });
     }
     ofOldHat();
-    setInterval(ofOldHat, 1000 * 660);
+    setInterval(ofOldHat, 1000 * 1020);
 }
 
