@@ -3,10 +3,10 @@ module.exports.tweet = () => {
     var scriptModule = require('./db')
     var db = scriptModule.script.firestore();
     let filmList = ['dunkirk', 'forrest-gump', 'moonlight', 'no-country-for-old-men', 'pulp-fiction', 'spotlight', 'blood-diamond'
-    , 'django-unchained', 'fight-club', 'inglourious-basterds', 'cuckoo-nest', 'reservoir-dogs', 'monte-cristo', 'godfather'
-    , 'grand-budapest', 'godfather-2', 'catch-22', 'catch-me-if-you-can', 'hacksaw-ridge', 'inception', 'into-the-wild', '1984'
-    , 'rango', 'the-grapes-of-wrath', 'to-kill-a-mokingbird', 'whiplash', 'amelie', 'coffee-and-cigarettes', 'the-misfortunates'
-    , 'the-white-balloon', 'bullitt','earth', 'the-magnificent-seven', 'tony-manero']
+        , 'django-unchained', 'fight-club', 'inglourious-basterds', 'reservoir-dogs', 'godfather'
+        , 'grand-budapest', 'godfather-2', 'catch-me-if-you-can', 'hacksaw-ridge', 'inception', 'into-the-wild'
+        , 'rango', 'whiplash', 'amelie', 'coffee-and-cigarettes', 'the-misfortunates', 'the-white-balloon'
+        , 'bullitt','earth', 'the-magnificent-seven', 'tony-manero']
 
     const Twit = require('twit');
     const config = require('../config/twit');
