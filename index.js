@@ -10,6 +10,7 @@ const port = process.env.PORT || 3002;
 var router = express.Router();
 var router= require('./router/index');
 app.use('/', router);
+var cron = require('node-cron');
 
 
 // scriptEcho 
@@ -20,6 +21,10 @@ scriptEcho.tweet();
 var ofOldHat=require('./firestore/ofOldHat')
 ofOldHat.tweet();
 
+var scrapDribb = require('./modules/dribb');
+cron.schedule('0 */24 * * *', () => {
+    scrapDribb.scrapDrib()
+});
 // add words to scriptEcho 
 // var addWordsToScript= require('./modules/addDataScriptEcho')
 // addWordsToScript.addWords();
@@ -27,6 +32,8 @@ ofOldHat.tweet();
 // add verses to ofOldHat
 // var versesOfOldHat = require('./modules/markovChain');
 // versesOfOldHat.markovChain();
+
+
 
 app.listen(port, () => {
     console.log('server is running up')

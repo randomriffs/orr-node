@@ -5,21 +5,22 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 const path = require('path');
+var admin = require("firebase-admin");
 
 let filmList = ['dunkirk', 'forrest-gump', 'moonlight', 'no-country-for-old-men', 'pulp-fiction', 'spotlight', 'blood-diamond'
-, 'django-unchained', 'fight-club', 'inglourious-basterds', 'reservoir-dogs', 'godfather'
-, 'grand-budapest', 'godfather-2', 'catch-me-if-you-can', 'hacksaw-ridge', 'inception', 'into-the-wild'
-, 'rango', 'whiplash', 'amelie', 'coffee-and-cigarettes', 'the-misfortunates', 'the-white-balloon'
-,'bullitt','earth', 'the-magnificent-seven', 'tony-manero']
+    , 'django-unchained', 'fight-club', 'inglourious-basterds', 'reservoir-dogs', 'godfather'
+    , 'grand-budapest', 'godfather-2', 'catch-me-if-you-can', 'hacksaw-ridge', 'inception', 'into-the-wild'
+    , 'rango', 'whiplash', 'amelie', 'coffee-and-cigarettes', 'the-misfortunates', 'the-white-balloon'
+    , 'bullitt', 'earth', 'the-magnificent-seven', 'tony-manero']
 
 let books = ['1984', 'catcher-in-the-rye', 'fahrenheit-451', 'grapes-of-wrath', 'of-mice-and-men', 'orlando',
-            'the-brother-karamazov', 'the-illiad', 'the-odyssey']
+    'the-brother-karamazov', 'the-illiad', 'the-odyssey']
 
 var scriptModule = require('../firestore/db')
 var db = scriptModule.script.firestore();
 
 var bookLogModule = require('../firestore/db')
-var bookLogDb  = bookLogModule.bookLogs.firestore()
+var bookLogDb = bookLogModule.bookLogs.firestore()
 
 const User = require('../models/userSchema')
 const Blogs = require('../models/blogSchema');
@@ -162,38 +163,38 @@ router.get('/api/random', (req, res) => {
 
 
 router.get('/api/random/books', (req, res) => {
-   let bookSize = 515;
-   let randomBookList = Math.floor(Math.random() * bookSize);
-   console.log('randomBookList', randomBookList)
-   var docRef = bookLogDb.collection("bookList").doc("page-" + randomBookList);
-   docRef.get().then(function (doc) {
-       if (doc.exists) {
-           let books = doc.data().list;
-           let booksLength = books.length - 1;
-           let randomBook = Math.floor(Math.random() * booksLength) + 1
-           let book = books[randomBook];
-           console.log('book', book)
-           res.json({data:book})
-       } else {
-           // doc.data() will be undefined in this case
-           console.log("No such document!");
-           // res.json({ status: false })
-       }
-   }).catch(function (error) {
-       console.log("Error getting document:", error);
-   });
+    let bookSize = 515;
+    let randomBookList = Math.floor(Math.random() * bookSize);
+    console.log('randomBookList', randomBookList)
+    var docRef = bookLogDb.collection("bookList").doc("page-" + randomBookList);
+    docRef.get().then(function (doc) {
+        if (doc.exists) {
+            let books = doc.data().list;
+            let booksLength = books.length - 1;
+            let randomBook = Math.floor(Math.random() * booksLength) + 1
+            let book = books[randomBook];
+            console.log('book', book)
+            res.json({ data: book })
+        } else {
+            // doc.data() will be undefined in this case
+            console.log("No such document!");
+            // res.json({ status: false })
+        }
+    }).catch(function (error) {
+        console.log("Error getting document:", error);
+    });
 
 })
 
 router.get('/api/random/verses', (req, res) => {
     let bookLength = books.length;
     console.log('bookLength', bookLength)
-    let randomBook =books[Math.floor(Math.random() * bookLength)]
+    let randomBook = books[Math.floor(Math.random() * bookLength)]
     // let document = randomBook+
-    let randomSubBook = Math.floor(Math.random()*7)+1;
+    let randomSubBook = Math.floor(Math.random() * 7) + 1;
 
-    console.log('randomHome', randomBook+'-'+randomSubBook);
-    var docRef = db.collection("verses").doc(randomBook+'-'+randomSubBook);
+    console.log('randomHome', randomBook + '-' + randomSubBook);
+    var docRef = db.collection("verses").doc(randomBook + '-' + randomSubBook);
     docRef.get().then(function (doc) {
         if (doc.exists) {
             let verses = doc.data().data;
@@ -202,9 +203,9 @@ router.get('/api/random/verses', (req, res) => {
             console.log('random verses', randomVerses)
             console.log(verses[randomVerses])
             res.json({
-                status:true,
-                verse:verses[randomVerses],
-                book:randomBook.replace(/-/g,' ')
+                status: true,
+                verse: verses[randomVerses],
+                book: randomBook.replace(/-/g, ' ')
             })
 
         } else {
@@ -218,6 +219,39 @@ router.get('/api/random/verses', (req, res) => {
 
 })
 
+router.get('/api/random/gifs', (req, res) => {
+    // var docRef = db.collection("gifs")
+    // var key = docRef.doc().id;
+    // docRef.where(admin.firestore.FieldPath.documentId(), '>=', key).limit(1).get()
+    //     .then(snapshot => {
+    //         if (snapshot.size > 0) {
+    //             snapshot.forEach(doc => {
+    //                 console.log(doc.id, '=>', doc.data());
+    //             });
+    //         }
+    //     })
+            // docRef.get().then(function (doc) {
+            //     if (doc.exists) {
+            //         let verses = doc.data().data;
+            //         let versesSize = verses.length - 1;
+            //         let randomVerses = Math.floor(Math.random() * versesSize);
+            //         console.log('random verses', randomVerses)
+            //         console.log(verses[randomVerses])
+            //         res.json({
+            //             status:true,
+            //             verse:verses[randomVerses],
+            //             book:randomBook.replace(/-/g,' ')
+            //         })
 
+            //     } else {
+            //         // doc.data() will be undefined in this case
+            //         console.log("No such document!");
+            //         // res.json({ status: false })
+            //     }
+            // }).catch(function (error) {
+            //     console.log("Error getting document:", error);
+            // });
 
-module.exports = router;
+        })
+
+    module.exports = router;
