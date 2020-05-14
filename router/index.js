@@ -220,16 +220,20 @@ router.get('/api/random/verses', (req, res) => {
 })
 
 router.get('/api/random/gifs', (req, res) => {
-    // var docRef = db.collection("gifs")
-    // var key = docRef.doc().id;
-    // docRef.where(admin.firestore.FieldPath.documentId(), '>=', key).limit(1).get()
-    //     .then(snapshot => {
-    //         if (snapshot.size > 0) {
-    //             snapshot.forEach(doc => {
-    //                 console.log(doc.id, '=>', doc.data());
-    //             });
-    //         }
-    //     })
+    var docRef = db.collection("dribb")
+    var key = docRef.doc().id;
+    docRef.where(admin.firestore.FieldPath.documentId(), '>=', key).limit(1).get()
+        .then(snapshot => {
+            if (snapshot.size > 0) {
+                snapshot.forEach(doc => {
+                    console.log(doc.id, '=>', doc.data());
+                    res.json({
+                        data:doc.data().data,
+                        status:true
+                    })
+                });
+            }
+        })
             // docRef.get().then(function (doc) {
             //     if (doc.exists) {
             //         let verses = doc.data().data;

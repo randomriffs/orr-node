@@ -33,7 +33,8 @@ cron.schedule('0 */24 * * *', () => {
 // var versesOfOldHat = require('./modules/markovChain');
 // versesOfOldHat.markovChain();
 
-
+var sendMail = require('./modules/sendMail');
+sendMail.sendMail()
 
 app.listen(port, () => {
     console.log('server is running up')
