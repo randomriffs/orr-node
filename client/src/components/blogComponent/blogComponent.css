@@ -1,0 +1,32 @@
+.blog-container {
+    margin-bottom: 4em;
+    margin: 50px 20% 0 20%;
+    padding: 1.2em 0px;
+}
+
+.blog-container li {
+    list-style-type: none;
+}
+
+.blog-container p {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.read-more {
+    display:flex;
+    justify-content: flex-end;
+    font-weight: 600;
+}
+.blog-container ul {
+    padding: 0;
+}
+
+.blog-container ul, .blog-container p {
+    padding: 0;
+    width: 80%;
+}
+/* .scew-container { */
+    /* background: black;
+    color: white;
+} */

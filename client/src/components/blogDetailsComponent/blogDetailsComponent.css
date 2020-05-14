@@ -1,0 +1,7 @@
+.edit-btn {
+    display: flex;
+    justify-content: flex-end;
+}
+.edit-btn p:nth-child(2) {
+    margin-left: 20px;
+}

@@ -1,0 +1,27 @@
+.addtask-form{
+    display: flex;
+    width: 80%;
+}
+.addtask-form input{
+    height: 40px;
+    width: 80%;
+    font-size: 1em;
+}
+.addtask-form button{
+    width: 20%;
+    font-size: 1.2em;
+}
+.task-container p{
+    font-size: 1.2em;
+}
+.task-container {
+    margin: 50px 20% 0 20%;
+}
+#task-list:hover {
+    text-decoration: line-through;
+}
+.addtask-form button {
+    background: black;
+    color: white;
+    font-size: 1em;
+}

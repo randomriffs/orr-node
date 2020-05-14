@@ -1,0 +1,26 @@
+.blogEdit-container form{
+    display: flex;
+flex-direction: column;
+width: 100%;
+margin-bottom: 2em;
+}
+.blogEdit-container .save-btn{
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 20px;
+}
+
+.save-btn button {
+    height: 40px;
+    width: 70px;
+    font-size: 1em;
+}
+.blogEdit-container input {
+    height: 40px;
+}
+.blogEdit-container textarea {
+    height: 200px;
+}
+.blogEdit-container h1 {
+    padding: .2em 0;
+}
