@@ -29,7 +29,7 @@ export function BlogComponent(props){
           }
           )}
         </ul>
-        <p class="read-more" onClick={props.isReadMoreFunc}>{!props.isReadMore?'Read more':''}</p>
+        <p class="read-more" onClick={props.isReadMoreFunc}>{!props.isReadMore ?'Read more':''}</p>
       </div>
       </div>
     </React.Fragment>

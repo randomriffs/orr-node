@@ -10,4 +10,13 @@ export const getTasks=()=>{
         payload:null
     }
 }
-
+export const loadingOn=()=>{
+    return{
+        type:'LOADINGON',
+    }
+}
+export const loadingOff=()=>{
+    return{
+        type:'LOADINGOFF',
+    }
+}

@@ -4,21 +4,25 @@ const isDev = false;
 const URL = isDev ? 'http://localhost:3000' : 'https://randomriffs.herokuapp.com'
 
 function* getBlogs(){
+  yield put({type:'LOADINGON'})
   const result = yield axios.get(URL+'/api/blogs')
   .then(response=>{
     return response.data
   })
 
   yield put({type:'GETBLOGSUCCESS',payload:result})
+  yield put({type:'LOADINGOFF'})
 }
 
 function* getTasks(){
+  yield put({type:'LOADINGON'})
   const result = yield axios.get(URL+'/api/tasks')
   .then(response=>{
     return response.data
   })
 
   yield put({type:'GETTASKSSUCCESS',payload:result})
+  yield put({type:'LOADINGOFF'})
 }
 
 function* getBlogsSaga(){
@@ -32,13 +36,14 @@ function* getTaskSaga(){
 
 function* postLoginData(data) {
   console.log('get loign from  saga')
+  // yield put({type:'LOADINGON'})
   const json = yield axios.post(URL+'/api/login',data.payload).
   then(response => {
    return response.data
   });    
 
   yield put({ type: "LOGINDATARECEIVED", payload: json });
-
+  // yield put({type:'LOADINGOFF'})
 }
 
 function* postBlogData(data) {

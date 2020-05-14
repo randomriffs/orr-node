@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './gypsyAxiomComponent.css'
+import './scriptEchoComponent.css'
 
-export default class GypsyAxiomComponent extends Component {
+export default class ScriptEchoComponent extends Component {
     state = {
         sayings: '',
         film: ''
@@ -19,8 +19,8 @@ export default class GypsyAxiomComponent extends Component {
 
     render() {
         return (
-            <div className='gypsy-axiom'>
-                <h1>Gypsy Axiom</h1>
+            <div className='script-echo'>
+                <h1>Script Echo</h1>
                 <h3>{this.state.saying}</h3>
                 <h3> {this.state.film.replace(/-/g,' ')}</h3>
             </div>

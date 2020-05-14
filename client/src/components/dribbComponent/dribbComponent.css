@@ -1,0 +1,12 @@
+.dribb {
+    margin: 100px 10% 100px 10%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.dribb .flex-bs {
+    flex-basis: 30em;
+}
+h3 {
+    text-align: center;
+}

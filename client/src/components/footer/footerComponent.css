@@ -1,0 +1,5 @@
+.footer-container {
+    clip: rect(10px,400px,100px,138px);
+    position: absolute;
+    width: 100%;
+}

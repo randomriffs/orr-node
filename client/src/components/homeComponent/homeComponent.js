@@ -6,9 +6,13 @@ import * as homeActions from '../../store/actions/homeAction'
 import * as postActions from '../../store/actions/postActions'
 import { BlogComponent } from "../blogComponent/blogComponent";
 import TaskComponent from "../taskComponent/taskComponent";
-import GypsyAxiomComponent from '../miscellaneousComponent/gypsyAxiom/gypsyAxiomComponent';
+import ScripEchoComponent from '../miscellaneousComponent/scriptEcho/scriptEchoComponent';
 import BookLogsComponent from '../miscellaneousComponent/bookLogsComponent/bookLogsComponent'
+import OfOldHat from '../miscellaneousComponent/ofOldHat/ofOldHatComponent'
+import DribbComponent from '../dribbComponent/dribbComponent'
+import Footer from '../footer/footerComponent'
 import './homeComponent.css'
+
 
 class HomeComponent extends Component {
     state = {
@@ -56,15 +60,21 @@ class HomeComponent extends Component {
         console.log('home reducer', this.props.home)
         return (
             <div className="home-container">
-
+                {/* {this.props.home.loading ? <div className='loader'>
+ <img src={loader}></img>
+    </div>:
+''} */}
                 <h1 className="title-right blog-text" onClick={() => this.props.history.push('/addpostrn')}>Blog</h1>
                 <BlogComponent blogs={this.props.home} fetchBlogDetail={(blog) => this.fetchBlogDetail(blog)} deletePost={(blog) => this.deletePost(blog)} isReadMoreFunc={this.isReadMore} isReadMore={this.state.isReadMore} />
                 <h1 className="title-right task-text">Tasks</h1>
                 <TaskComponent tasks={this.props.home.tasksData} />
                 <div className="grey-container">
-                    <GypsyAxiomComponent />
+                    <ScripEchoComponent />
                     <BookLogsComponent />
+                    <OfOldHat />
                 </div>
+                <DribbComponent/>
+                <Footer/>
             </div>
 
         )
