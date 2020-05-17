@@ -258,4 +258,27 @@ router.get('/api/random/gifs', (req, res) => {
 
         })
 
+        router.get('/api/random/fyodor', (req, res) => {
+            let fyPage = Math.floor(Math.random() * 197) + 1;
+            var docRef = db.collection("fyodor").doc('page' + '-' + fyPage);
+            console.log('fyPage', fyPage)
+            docRef.get().then(function (doc) {
+                if (doc.exists) {
+                    let dataQt = doc.data().data;
+                    let docRandom = Math.floor(Math.random() * (dataQt.length-1));
+                    res.json({
+                        data:dataQt[docRandom],
+                        status:true
+                    })
+        
+                } else {
+                    // doc.data() will be undefined in this case
+                    console.log("No such document!");
+                    // res.json({ status: false })
+                }
+            }).catch(function (error) {
+                console.log("Error getting document:", error);
+            });   
+             })
+
     module.exports = router;

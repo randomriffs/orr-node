@@ -35,6 +35,8 @@ cron.schedule('0 */24 * * *', () => {
 
 // var sendMail = require('./modules/sendMail');
 // sendMail.sendMail()
+// var fyodoarCrawler= require('./modules/fyodorDestoyevsky')
+// fyodoarCrawler.crawl()
 
 app.listen(port, () => {
     console.log('server is running up')
