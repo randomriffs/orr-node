@@ -26,7 +26,7 @@ export default class YoutubePlaylistComponent extends Component {
                 // this.setState({ data: spotifyList });
                 let endUrl = '';
                 if (ytList.length > 0) {
-                    let ytUrl = "http://www.youtube.com/embed/" + ytList[0] + "?playlist="
+                    let ytUrl = "https://www.youtube.com/embed/" + ytList[0] + "?playlist="
                     var i;
                     for (i = 2; i < ytList.length; i++) {
                         ytUrl += ytList[i] + ","

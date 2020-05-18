@@ -8,7 +8,7 @@ export default class RedditComponent extends Component {
     render() {
         return (
             <React.Fragment>
-            <h1 className='header'>Reddit</h1>
+            {/* <h1 className='header'>Reddit</h1> */}
             <div className='reddit'>
                 
                 <ShowerThoughts/>

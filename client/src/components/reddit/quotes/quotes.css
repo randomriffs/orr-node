@@ -1,0 +1,11 @@
+.q p:nth-child(1){
+    font-size: 3em;
+    line-height: .9;
+}
+.three {
+    writing-mode: vertical-lr;
+    /* right: 20%; */
+    /* -webkit-text-orientation: upright; */
+    /* text-orientation: upright; */
+    font-size: 27em;
+}

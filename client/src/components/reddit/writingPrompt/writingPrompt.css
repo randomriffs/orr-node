@@ -1,0 +1,10 @@
+.wp p:nth-child(1){
+    font-size: 3em;
+}
+
+.seventyfive{
+    font-size: 25em;
+    position: absolute;
+    z-index: 3;
+    writing-mode: vertical-lr;
+}

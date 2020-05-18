@@ -27,10 +27,11 @@ export default class WritingPromptComponent extends Component {
     }
     render() {
         return (
-            <div className='sub-reddit'>
+            <div className='sub-reddit wp'>
                 {this.state.data && this.state.data.map((data)=>{
                     return <p>{data}</p>
                 })}
+                {/* <div className='seventyfive'>753</div> */}
             </div>
         )
     }

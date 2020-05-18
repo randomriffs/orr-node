@@ -27,7 +27,7 @@ export default class ShowThoughtsComponent extends Component {
     }
     render() {
         return (
-            <div className='sub-reddit'>
+            <div className='sub-reddit shower-thoughts'>
                 {this.state.data && this.state.data.map((data)=>{
                     return <p>{data}</p>
                 })}

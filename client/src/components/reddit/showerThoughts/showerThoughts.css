@@ -1,0 +1,4 @@
+.shower-thoughts p:nth-child(1) {
+    font-size: 3em;
+    line-height: 1.4;
+}

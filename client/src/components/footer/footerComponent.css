@@ -1,5 +1,15 @@
-.footer-container {
-    clip: rect(10px,400px,100px,138px);
-    position: absolute;
-    width: 100%;
+hr {
+    /* display: block; */
+    height: 1px;
+    border: 0;
+    border-top: 5px solid #000;
+    /* margin: 1em 0; */
+    /* padding: 0; */
+    width: 20%;
+    display: block;
+    /* width: 75%; */
+    /* height: auto; */
+    margin: 0 auto;
+    margin-bottom: 5em;
+    margin-top: 5em;
 }
