@@ -67,3 +67,49 @@
 #task-list, .addtask-form button {
     cursor: pointer;
 }
+
+
+.wave {
+    font-weight: 400;
+    color: white;
+    padding-bottom: 5px;
+    background: url("../../asset/wave.svg");
+    /* fill:blue; */
+    background-repeat: repeat;
+    background-position-x: 0%;
+    background-position-y: 0%;
+    background-size: auto auto;
+    /* background-repeat: repeat-x; */
+    background-size: 15px 5px; 
+    background-position: 2px 19px;
+    -webkit-animation: move 15s linear infinite;
+    -webkit-animation: move 15s linear infinite;
+    -webkit-animation-play-state: paused;
+    text-decoration: none;
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+     animation-play-state: running;
+     -webkit-animation-play-state:running;
+  }
+  
+  
+  
+  
+  @keyframes move {
+  from {
+      background-position: 2px 19px;
+    }
+    to {
+      background-position: 500px 19px;
+    }
+  }
+  
+  @keyframe move {
+  from {
+      background-position: 2px 19px;
+    }
+    to {
+      background-position: 500px 19px;
+    }
+  }
+  

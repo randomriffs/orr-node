@@ -1,3 +1,8 @@
 .script-echo h3:nth-child(3){
     text-transform: capitalize;
 }
+.script-echo {
+    background-color:black;
+    color: white;
+    padding: 0  20px;
+}

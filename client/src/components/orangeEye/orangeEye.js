@@ -22,6 +22,7 @@ export default class YoutubePlaylistComponent extends Component {
     render() {
         return (
             <div className='orange-eye'>
+            <div className='container'>
 <img className='amelie' src={amelie}></img>
 <img className='eva' src={eva}></img>
 <img className='square' src={square}></img>
@@ -35,6 +36,7 @@ export default class YoutubePlaylistComponent extends Component {
 {/* <img className='poo' src={poo}></img> */}
 {/* <img className='facemirror' src={facemirror}></img> */}
 {/* <img className='halfface' src={halfface}></img> */}
+            </div>
             </div>
         )
     }

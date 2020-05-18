@@ -29,45 +29,48 @@
 
 .triangle{
     position: absolute;
-    right: 20%;
+    right: 24%;
+    bottom: -63%;
+
 }
 
 .circle{
     position: absolute;
-    right: 46%;
-    bottom: 41%;
+    right: 52%;
+    bottom: 35%;
 } 
 .star{
     position: absolute;
-    right: 48%;
+    right: 43%;
     /* bottom: 2%; */
-    bottom: -46%;
+    bottom: -67%;
 } 
 .square {
     position: absolute;
-    right: 26%;
-    bottom: -31%;
+    right: 29%;
+    bottom: -26%;
 }
 .textone{
     position: absolute;
     right: 40%;
     z-index: 5;
+    bottom: -8%;
 }
 .texttwo{
     position: absolute;
     right: 49%;
     z-index: 6;
-    bottom: -11%;
+    bottom: -17%;
 }
 .textthree{
     position: absolute;
     right: 39%;
     z-index: 6;
-    bottom: -14%;
+    bottom: -18%;
 }
 .textfour{
     position: absolute;
     right: 48%;
     z-index: 6;
-    bottom: -26%;
+    bottom: -27%;
 }

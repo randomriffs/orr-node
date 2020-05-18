@@ -10,3 +10,11 @@
 h3 {
     text-align: center;
 }
+.typewriter {
+    font-size: 1.7em;
+    /* font-style: italic; */
+    /* font-weight: 500; */
+    line-height: 1;
+    /* background-color:#cacaca; */
+    /* transform: rotate(-12deg); */
+}

@@ -1,3 +1,10 @@
 .of-old-hat h3:nth-child(3){
     text-transform: capitalize;
 }
+
+.of-old-hat {
+    /* background-color:#D7A2CD; */
+    /* background-color: black;
+    color: white; */
+    padding: 0  20px;
+}

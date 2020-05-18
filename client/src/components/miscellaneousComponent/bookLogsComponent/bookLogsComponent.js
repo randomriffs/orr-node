@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import './bookLogs.css'
 
 export default class BookLogsComponent extends Component {
     state = {

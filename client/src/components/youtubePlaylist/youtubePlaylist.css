@@ -1,5 +1,5 @@
 .youtube h1{
-    margin: 2em 3em;
+margin: 2em 2em 0 3em;
     font-size: 2.5em;
 }
 .youtube iframe{
@@ -10,4 +10,8 @@
 }
 .youtube {
     margin-bottom: 10em;
+}
+.wave-div-yt {
+    width: 12%;
+    margin: 0 4em 6em 7.5em;
 }

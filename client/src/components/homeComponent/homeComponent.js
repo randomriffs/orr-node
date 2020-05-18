@@ -14,7 +14,8 @@ import Footer from '../footer/footerComponent';
 import SpotifyPlaylist from '../spotifyPlaylist/spotifyPlaylist';
 import YoutubePlaylist from '../youtubePlaylist/youtubePlaylist';
 import Reddit from '../reddit/reddit';
-import OrangeEye from '../orangeEye/orangeEye'
+import OrangeEye from '../orangeEye/orangeEye';
+import PurplePage from '../purplePage/purplePage'
 
 import './homeComponent.css'
 
@@ -79,6 +80,7 @@ class HomeComponent extends Component {
                 <YoutubePlaylist/>
                 <Reddit/>
                 <OrangeEye/>
+                <PurplePage/>
                 <Footer/>
             </div>
 

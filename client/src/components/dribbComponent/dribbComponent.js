@@ -5,7 +5,9 @@ import ReactPlayer from 'react-player'
 export default class DribbComponent extends Component {
     state = {
         gif: '',
-        fyodor: '',
+        fyodorOne: '',
+        fyodorTwo: '',
+        fyodorThree: '',
     }
     componentDidMount() {
         fetch("https://randomriffs.herokuapp.com/api/random/gifs")
@@ -37,7 +39,13 @@ export default class DribbComponent extends Component {
         fetch("https://randomriffs.herokuapp.com/api/random/fyodor")
             .then(res => res.json())
             .then((result) => {
-                this.setState({ fyodor: result.data });
+                let totalLen =  result.data.length;
+                let first = result.data.slice(0,(((result.data.length)/2)-12))
+                let second = result.data.slice((((result.data.length)/2)-12),(((result.data.length)/2)+12))
+                let third = result.data.slice((((result.data.length)/2)+12),result.data.length);
+                // console.log('fyodo acutal', result.data)
+                // console.log('splided fyood', `${first}${second}${third}`)
+                this.setState({ fyodorOne: first, fyodorTwo: second, fyodorThree: third});
             },
                 (error) => {
                     this.setState({ error });
@@ -49,7 +57,7 @@ export default class DribbComponent extends Component {
             <div className='dribb'>
                 <div className='flex-bs'>
                     <h3 className='some-text'>
-                       {this.state.fyodor}
+        <p>{this.state.fyodorOne}<span className='typewriter'>{this.state.fyodorTwo}</span>{this.state.fyodorThree}</p>
                     </h3>
                 </div>
                 {/* <h3>{this.state.gif}</h3><br></br> */}

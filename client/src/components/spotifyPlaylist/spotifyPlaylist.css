@@ -1,12 +1,16 @@
 .spotifyPlaylist{
     display: flex;
     justify-content: space-evenly;
-    margin-bottom: 10em;
+    margin-bottom: 9em;
 }
 .spotifyPlaylist iframe {
     flex-basis: 25%;
 }
 .spotify h1 {
-    margin: 2em 3em;
+    margin: 2em 3em 0  3em;
     font-size: 2.5em;
+}
+.wave-div {
+    width: 11%;
+    margin:0 4em 6em 7em;
 }
