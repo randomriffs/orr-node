@@ -31,3 +31,7 @@
     /* background: black;
     color: white;
 } */
+.blog-container li, .del, .read-more{
+    
+cursor: pointer;
+}

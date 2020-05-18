@@ -7,10 +7,14 @@ import * as postActions from '../../store/actions/postActions'
 import { BlogComponent } from "../blogComponent/blogComponent";
 import TaskComponent from "../taskComponent/taskComponent";
 import ScripEchoComponent from '../miscellaneousComponent/scriptEcho/scriptEchoComponent';
-import BookLogsComponent from '../miscellaneousComponent/bookLogsComponent/bookLogsComponent'
-import OfOldHat from '../miscellaneousComponent/ofOldHat/ofOldHatComponent'
-import DribbComponent from '../dribbComponent/dribbComponent'
-import Footer from '../footer/footerComponent'
+import BookLogsComponent from '../miscellaneousComponent/bookLogsComponent/bookLogsComponent';
+import OfOldHat from '../miscellaneousComponent/ofOldHat/ofOldHatComponent';
+import DribbComponent from '../dribbComponent/dribbComponent';
+import Footer from '../footer/footerComponent';
+import SpotifyPlaylist from '../spotifyPlaylist/spotifyPlaylist';
+import YoutubePlaylist from '../youtubePlaylist/youtubePlaylist';
+import Reddit from '../reddit/reddit'
+
 import './homeComponent.css'
 
 
@@ -74,6 +78,9 @@ class HomeComponent extends Component {
                     <OfOldHat />
                 </div>
                 <DribbComponent/>
+                <SpotifyPlaylist/>
+                <YoutubePlaylist/>
+                <Reddit/>
                 <Footer/>
             </div>
 

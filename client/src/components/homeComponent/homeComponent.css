@@ -19,6 +19,8 @@
     justify-content: space-evenly;
     /* padding: 32px; */
     margin:3.5em;
+    margin-top: 10em;
+    /* margin-bottom: 15em; */
    
 }
 .grey-container .script-echo {
@@ -60,4 +62,8 @@
     z-index: 3;
     /* background-color: white; */
     /* height: 100vh; */
+}
+
+#task-list, .addtask-form button {
+    cursor: pointer;
 }

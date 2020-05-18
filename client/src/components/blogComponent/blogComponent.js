@@ -23,7 +23,7 @@ export function BlogComponent(props){
                 <p>{blog.content}</p>
               </li>
               </div>
-              <div onClick={()=>props.deletePost(blog)}>delete</div>
+              <div className="del" onClick={()=>props.deletePost(blog)}>delete</div>
               </div>
             )
           }

@@ -21,9 +21,6 @@ export default class BookLogsComponent extends Component {
                 <h1>Book Logs</h1>
                 <h4>{this.state.book.bookName}</h4>
                 <h4><a href={this.state.book.bookUrl} target='_blank'>{this.state.book.bookUrl}</a></h4>
-                {/* <h3>Gypsy Axiom</h3>
-                <h4>{this.state.saying}</h4>
-                <p> {this.state.film.replace(/-/g,' ')}</p> */}
             </div>
         )
     }

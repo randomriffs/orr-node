@@ -23,7 +23,7 @@ export default class ScriptEchoComponent extends Component {
                 <h1>Script Echo</h1>
                 <h3>{this.state.saying}</h3>
                 <h3> {this.state.film.replace(/-/g,' ')}</h3>
-            </div>
+             </div>
         )
     }
 }

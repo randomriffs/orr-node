@@ -5,6 +5,7 @@ import ReactPlayer from 'react-player'
 export default class DribbComponent extends Component {
     state = {
         gif: '',
+        fyodor: '',
     }
     componentDidMount() {
         fetch("https://randomriffs.herokuapp.com/api/random/gifs")
@@ -31,6 +32,16 @@ export default class DribbComponent extends Component {
                 (error) => {
                     this.setState({ error });
                 })
+
+        // fyodor
+        fetch("https://randomriffs.herokuapp.com/api/random/fyodor")
+            .then(res => res.json())
+            .then((result) => {
+                this.setState({ fyodor: result.data });
+            },
+                (error) => {
+                    this.setState({ error });
+                })
     }
 
     render() {
@@ -38,19 +49,18 @@ export default class DribbComponent extends Component {
             <div className='dribb'>
                 <div className='flex-bs'>
                     <h3 className='some-text'>
-                        “If you wish to glimpse inside a human soul and get to know a man, don't bother analyzing his ways of being silent, of talking, of weeping, of seeing how much he is moved by noble ideas; you will get better results if you just watch him laugh. If he laughs well, he's a good man.”
-                </h3>
+                       {this.state.fyodor}
+                    </h3>
                 </div>
                 {/* <h3>{this.state.gif}</h3><br></br> */}
                 <div className='flex-bs'>
-                {this.state.gif.endsWith("gif") ?
-                    <img width="400" src={this.state.gif}>
-                    </img>
-                    :
-                    <ReactPlayer url={this.state.gif} playing loop />
-                }
+                    {this.state.gif.endsWith("gif") ?
+                        <img width="400" src={this.state.gif}>
+                        </img>
+                        :
+                        <ReactPlayer url={this.state.gif} playing={true} loop={true} volume={0} muted />
+                    }
                 </div>
-
             </div>
         )
     }

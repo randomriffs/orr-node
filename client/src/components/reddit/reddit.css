@@ -1,0 +1,17 @@
+.reddit {
+    display: flex;
+    justify-content: space-evenly;
+    margin-left: 2em;
+    margin-right: 2em;
+    margin-bottom: 7em;
+}
+.reddit .sub-reddit {
+    flex-basis: 25%;
+}
+.header{
+    font-size: 2.5em;
+    margin: 1.5em 3em;
+}
+.reddit p {
+    font-weight: 700;
+}
