@@ -13,7 +13,8 @@ import DribbComponent from '../dribbComponent/dribbComponent';
 import Footer from '../footer/footerComponent';
 import SpotifyPlaylist from '../spotifyPlaylist/spotifyPlaylist';
 import YoutubePlaylist from '../youtubePlaylist/youtubePlaylist';
-import Reddit from '../reddit/reddit'
+import Reddit from '../reddit/reddit';
+import OrangeEye from '../orangeEye/orangeEye'
 
 import './homeComponent.css'
 
@@ -63,12 +64,8 @@ class HomeComponent extends Component {
     render() {
         console.log('home reducer', this.props.home)
         return (
-            <div className="home-container">
-                {/* {this.props.home.loading ? <div className='loader'>
- <img src={loader}></img>
-    </div>:
-''} */}
-                <h1 className="title-right blog-text" onClick={() => this.props.history.push('/addpostrn')}>Blog</h1>
+            <div className="home-container"> 
+               <h1 className="title-right blog-text" onClick={() => this.props.history.push('/addpostrn')}>Blog</h1>
                 <BlogComponent blogs={this.props.home} fetchBlogDetail={(blog) => this.fetchBlogDetail(blog)} deletePost={(blog) => this.deletePost(blog)} isReadMoreFunc={this.isReadMore} isReadMore={this.state.isReadMore} />
                 <h1 className="title-right task-text">Tasks</h1>
                 <TaskComponent tasks={this.props.home.tasksData} />
@@ -81,6 +78,7 @@ class HomeComponent extends Component {
                 <SpotifyPlaylist/>
                 <YoutubePlaylist/>
                 <Reddit/>
+                <OrangeEye/>
                 <Footer/>
             </div>
 

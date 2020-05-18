@@ -1,0 +1,73 @@
+.orange-eye {
+    background-color: #FF8401;
+    height: 500px;
+    position: relative;
+    display:block;
+    margin : 0 auto;
+}
+.amelie{
+  position: absolute;
+  z-index: 2;
+  right: 35%;
+
+}
+
+.eva {
+    position: absolute;
+    right: 35%;
+    z-index: 1;
+    bottom: -80%;
+    transform: rotate(-10deg); 
+}
+
+.halfface {
+    position: absolute;
+    right: 60%;
+    height: 500px;
+    /* transform: rotate(30deg);  */
+}
+
+.triangle{
+    position: absolute;
+    right: 20%;
+}
+
+.circle{
+    position: absolute;
+    right: 46%;
+    bottom: 41%;
+} 
+.star{
+    position: absolute;
+    right: 48%;
+    /* bottom: 2%; */
+    bottom: -46%;
+} 
+.square {
+    position: absolute;
+    right: 26%;
+    bottom: -31%;
+}
+.textone{
+    position: absolute;
+    right: 40%;
+    z-index: 5;
+}
+.texttwo{
+    position: absolute;
+    right: 49%;
+    z-index: 6;
+    bottom: -11%;
+}
+.textthree{
+    position: absolute;
+    right: 39%;
+    z-index: 6;
+    bottom: -14%;
+}
+.textfour{
+    position: absolute;
+    right: 48%;
+    z-index: 6;
+    bottom: -26%;
+}
