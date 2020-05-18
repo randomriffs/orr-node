@@ -3,8 +3,11 @@
 }
 
 .seventyfive{
-    font-size: 25em;
+    font-size: 10em;
     position: absolute;
     z-index: 3;
-    writing-mode: vertical-lr;
+    /* writing-mode: vertical-lr; */
+    /* margin-bottom: 17%; */
+    margin-top: -1em;
+    /* background-color: azure; */
 }

@@ -31,7 +31,7 @@ export default class WritingPromptComponent extends Component {
                 {this.state.data && this.state.data.map((data)=>{
                     return <p>{data}</p>
                 })}
-                {/* <div className='seventyfive'>753</div> */}
+                <div className='seventyfive'>七十五</div>
             </div>
         )
     }
