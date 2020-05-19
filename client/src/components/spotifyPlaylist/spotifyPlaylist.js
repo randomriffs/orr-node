@@ -31,8 +31,8 @@ export default class SpotifyPlaylistComponent extends Component {
     render() {
         return (
             <div className='spotify'>
-                <h1 >Spotify</h1>
-                <div className='wave wave-div'></div>
+                {/* <h1 >Spotify</h1> */}
+                {/* <div className='wave wave-div'></div> */}
                     <div className='spotifyPlaylist'>
                         {this.state.data && this.state.data.map((lists)=>{
                             console.log('lists', lists)

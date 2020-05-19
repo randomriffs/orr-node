@@ -44,8 +44,8 @@ export default class YoutubePlaylistComponent extends Component {
     render() {
         return (
             <div className='youtube'>
-                <h1>Youtube</h1>
-                <div className='wave wave-div-yt'></div>
+                {/* <h1>Youtube</h1>
+                <div className='wave wave-div-yt'></div> */}
                 <iframe width="1000"height="500"src={this.state.data} frameborder="0" allowfullscreen></iframe>
                 {/* <div className='spotifyPlaylist'>
                         {this.state.data && this.state.data.map((lists)=>{

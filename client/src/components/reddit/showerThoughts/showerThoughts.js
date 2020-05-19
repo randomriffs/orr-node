@@ -13,7 +13,7 @@ export default class ShowThoughtsComponent extends Component {
                 let stData = result.data.children;
                 stData.map((dataList) => {
                     let dataSt= dataList.data.title;
-                    if (stList.length <8) {
+                    if (stList.length <12) {
                         stList.push(dataSt)
                     }
                 })

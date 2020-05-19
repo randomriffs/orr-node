@@ -18,7 +18,7 @@
     display: flex;
     justify-content: space-evenly;
     /* padding: 32px; */
-    margin:3.5em;
+    margin: 3em 6em;
     margin-top: 10em;
     /* margin-bottom: 15em; */
    
@@ -90,6 +90,33 @@
     -webkit-text-decoration-skip: objects;
      animation-play-state: running;
      -webkit-animation-play-state:running;
+  }
+
+  .wave-vt {
+    font-weight: 400;
+    color: white;
+    padding-bottom: 5px;
+    background: url("../../asset/wave.svg");
+    /* fill:blue; */
+    background-repeat: repeat;
+    background-position-x: 0%;
+    background-position-y: 0%;
+    background-size: auto auto;
+    /* background-repeat: repeat-x; */
+    background-size: 15px 5px; 
+    background-position: 2px 19px;
+    -webkit-animation: move 15s linear infinite;
+    -webkit-animation: move 15s linear infinite;
+    -webkit-animation-play-state: paused;
+    text-decoration: none;
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+     animation-play-state: running;
+     -webkit-animation-play-state:running;
+     transform:  translateX(-50%) translateY(-50%) rotate(-90deg);
+     width: 4%;
+     display: block;
+    margin: 17em auto;
   }
   
   

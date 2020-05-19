@@ -2,7 +2,10 @@
     text-transform: capitalize;
 }
 .script-echo {
-    background-color:black;
+    background-color:#007892;
     color: white;
     padding: 0  20px;
+}
+.script-echo h1 {
+    font-weight: 700;
 }

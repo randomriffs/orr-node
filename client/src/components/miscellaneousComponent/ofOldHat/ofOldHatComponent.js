@@ -20,7 +20,7 @@ export default class OfOldHatComponent extends Component {
     render() {
         return (
             <div className='of-old-hat'>
-                <h1>ofOldHat</h1>
+                <h1 className='wave'>ofOldHat</h1>
                 <h3>{this.state.verse}</h3>
                 <h3> {this.state.book}</h3>
             </div>

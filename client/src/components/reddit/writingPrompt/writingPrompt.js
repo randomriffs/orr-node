@@ -13,7 +13,7 @@ export default class WritingPromptComponent extends Component {
                 let stData = result.data.children;
                 stData.map((dataList) => {
                     let dataSt= dataList.data.title;
-                    if (wpList.length <10) {
+                    if (wpList.length <12) {
                         wpList.push(dataSt)
                     }
                 })

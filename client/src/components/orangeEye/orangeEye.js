@@ -14,7 +14,7 @@ import texttwo from '../../asset/texttwo.png'
 import textthree from '../../asset/textthree.png'
 import textfour from '../../asset/textfour.png'
 
-export default class YoutubePlaylistComponent extends Component {
+export default class OrangeComponent extends Component {
     state = {
         data: []
     }

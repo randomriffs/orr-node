@@ -15,7 +15,9 @@ import SpotifyPlaylist from '../spotifyPlaylist/spotifyPlaylist';
 import YoutubePlaylist from '../youtubePlaylist/youtubePlaylist';
 import Reddit from '../reddit/reddit';
 import OrangeEye from '../orangeEye/orangeEye';
-import PurplePage from '../purplePage/purplePage'
+import PurplePage from '../purplePage/purplePage';
+import CamelPage from '../camelPage/camelPage';
+import DiogoPage from '../diogoPage/diogoPage';
 
 import './homeComponent.css'
 
@@ -78,9 +80,15 @@ class HomeComponent extends Component {
                 <DribbComponent/>
                 <SpotifyPlaylist/>
                 <YoutubePlaylist/>
+                <div className='wave-vt'></div>
                 <Reddit/>
                 <OrangeEye/>
                 <PurplePage/>
+                <div className='wave-vt'></div>
+                <CamelPage/>
+                <div className='wave-vt'></div>
+                <DiogoPage/>
+                <div className='wave-vt'></div>
                 <Footer/>
             </div>
 

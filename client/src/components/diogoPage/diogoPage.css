@@ -1,0 +1,50 @@
+.diogo-page-container {
+    background-color: black;
+    width: 100%;
+}
+.white-container {
+    background-color: white;
+    margin: 3% 22%;
+    border-top-style: outset;
+    border-bottom-style: outset;
+}
+.lopes-image {
+    display: flex;
+    justify-content: center;
+    /* margin-top: 13em; */
+    padding-top: 7em;
+    
+}
+.lopes-image img {
+    display: block;
+    max-width: 253px;
+    max-height: 160px;
+    width: auto;
+    height: auto;
+}
+
+.lopes-image p {
+    margin-top: 90px;
+    margin-left: 30px;
+    font-size: 2em;
+    line-height: 1.2;
+}
+.manda-div h1 {
+    text-align: center;
+    font-size: 4em;
+    margin-top: 2em;
+    line-height: 1.2;
+}
+.manda-div p {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 29%;
+    font-size: 1.5em;
+    font-weight: 900;
+}
+.manda-div h3 {
+    margin-top: 30%;
+    text-align: left;
+    margin-left: 7%;
+    padding-bottom: 30px;
+}

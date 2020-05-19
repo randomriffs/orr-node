@@ -19,7 +19,7 @@ export default class BookLogsComponent extends Component {
     render() {
         return (
             <div className='book-logs'>
-                <h1>Book Logs</h1>
+                <h1 className='wave'>Book Logs</h1>
                 <h4>{this.state.book.bookName}</h4>
                 <h4><a href={this.state.book.bookUrl} target='_blank'>{this.state.book.bookUrl}</a></h4>
             </div>

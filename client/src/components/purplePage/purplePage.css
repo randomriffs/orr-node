@@ -1,4 +1,41 @@
+
 .purple-page{
     height: 700px;
-    background-color: blue;
+    background-color: #ff427f;
+    display: flex;
+    justify-content: flex-end;
+   
+}
+.red-page {
+    height: 700px;
+    background-color: #007892;
+    display: flex;
+    justify-content: flex-end;
+}
+.purple-page h1 {
+padding-top: 180px;
+margin:0;
+text-align: right;
+color: #bdb1b0;
+font-size: 20em;
+padding-right: 50px;
+
+}
+.red-page h1 {
+margin:0;
+text-align: left;
+color:#bdb1b0;
+font-size: 20em;
+}
+.qq {
+    color: #007891;
+    background: #b19658;
+    padding-left: 150px;
+    text-align: center;
+}
+.is {
+   color: #1f4068;
+}
+.pp {
+    font-weight: 700 !important;
 }
