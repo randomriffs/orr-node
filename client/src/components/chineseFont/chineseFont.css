@@ -1,0 +1,47 @@
+.chinese-font-container {
+    background-color: #c81912;
+    position: relative;
+    
+}
+
+.main-text h1 {
+    color: black;
+    font-size: 22em;
+    -webkit-text-stroke: 1px black;
+    -webkit-text-fill-color: #E30411;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-bottom: 0px;
+}
+.right-text {
+    position: absolute;
+    writing-mode: vertical-lr;
+    color:#423b3b;
+    font-size: 2em;
+    right: 15px;
+    top: 30px;
+    font-weight: 900;
+}
+.left-text {
+    position: absolute;
+    bottom: 15px;
+    left:30px;
+    /* font-size: 2em; */
+    /* color: white; */
+    font-weight: 900;
+    -webkit-text-stroke: 1px black;
+    -webkit-text-fill-color: #ff000d;
+    font-size: 4em;
+    line-height: 1.2;
+    margin-bottom: 0;
+}
+.paint-two {
+    background-color: #ff0000;
+    font-size: 1.3em;
+}
+.main-text1 {
+    color:#423b3b;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}

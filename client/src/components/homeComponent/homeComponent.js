@@ -18,6 +18,7 @@ import OrangeEye from '../orangeEye/orangeEye';
 import PurplePage from '../purplePage/purplePage';
 import CamelPage from '../camelPage/camelPage';
 import DiogoPage from '../diogoPage/diogoPage';
+import ChineseFont from '../chineseFont/chineseFont';
 
 import './homeComponent.css'
 
@@ -88,6 +89,8 @@ class HomeComponent extends Component {
                 <CamelPage/>
                 <div className='wave-vt'></div>
                 <DiogoPage/>
+                <div className='wave-vt'></div>
+                <ChineseFont/>
                 <div className='wave-vt'></div>
                 <Footer/>
             </div>
