@@ -1,19 +1,22 @@
 import React, { Component } from 'react'
 import './youtubePlaylist.css'
+import axios from 'axios';
+import { List } from 'react-content-loader'
 
 let ytList = []
 export default class YoutubePlaylistComponent extends Component {
     state = {
-        data: []
+        data: [],
+        loading: true
     }
     componentDidMount() {
-        fetch("https://www.reddit.com/r/youtubehaiku.json")
-            .then(res => res.json())
+        axios.get("https://www.reddit.com/r/youtubehaiku.json")
             .then((result) => {
-                let ytData = result.data.children;
+                let ytData = result.data.data.children;
+                console.log('ytDAta', ytData)
                 ytData.map((dataList) => {
                     let dataUrl = dataList.data.url
-                    if (dataUrl.startsWith('https://youtu.be') && (ytList.length <20    )) {
+                    if (dataUrl.startsWith('https://youtu.be') && (ytList.length < 20)) {
                         let splitUrl = dataUrl.split('/')
                         // let type = splitUrl[splitUrl.length-2]
                         let code = splitUrl[splitUrl.length - 1]
@@ -34,7 +37,7 @@ export default class YoutubePlaylistComponent extends Component {
                     endUrl = ytUrl.slice(0, endUrl.length - 1);
                 }
 
-                this.setState({ data: endUrl })
+                this.setState({ data: endUrl, loading: false })
 
             },
                 (error) => {
@@ -44,16 +47,16 @@ export default class YoutubePlaylistComponent extends Component {
     render() {
         return (
             <div className='youtube'>
-                {/* <h1>Youtube</h1>
-                <div className='wave wave-div-yt'></div> */}
-                <iframe width="1000"height="500"src={this.state.data} frameborder="0" allowfullscreen></iframe>
-                {/* <div className='spotifyPlaylist'>
-                        {this.state.data && this.state.data.map((lists)=>{
-                            console.log('lists', lists)
-                            return <iframe src={lists} width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-                        })}
-                    </div>
-                   */}
+                {
+                    this.state.loading ?
+                        <div>
+                             <List style={{ width: '100%' }} />
+                        </div> :
+                        <div className='activeFadeIn'>
+                            <iframe width="1000" height="500" src={this.state.data} frameborder="0" allowfullscreen></iframe>
+                        </div>
+                }
+                
             </div>
         )
     }

@@ -1,16 +1,18 @@
 import React, { Component } from 'react'
 import './spotifyPlaylist.css'
+import axios from 'axios';
+import ContentLoader, { List } from 'react-content-loader'
 
 let spotifyList = []
 export default class SpotifyPlaylistComponent extends Component {
     state = {
-        data:[]
+        data:[],
+        loading:true
     } 
     componentDidMount() {
-        fetch("https://www.reddit.com/r/spotify.json")
-            .then(res => res.json())
+        axios.get("https://www.reddit.com/r/spotify.json")
             .then((result) => {
-                let spotifyData =  result.data.children;
+                let spotifyData =  result.data.data.children;
                 spotifyData.map((dataList)=>{
                     let dataUrl =  dataList.data.url
                     if(dataUrl.startsWith('https://open.spotify.com') && (spotifyList.length<3)){
@@ -22,7 +24,7 @@ export default class SpotifyPlaylistComponent extends Component {
                     }
                 })
                 console.log('spotify list',spotifyList)
-                this.setState({ data: spotifyList });
+                this.setState({ data: spotifyList , loading: false});
             },
                 (error) => {
                     this.setState({ error });
@@ -30,15 +32,20 @@ export default class SpotifyPlaylistComponent extends Component {
     }
     render() {
         return (
-            <div className='spotify'>
-                {/* <h1 >Spotify</h1> */}
-                {/* <div className='wave wave-div'></div> */}
-                    <div className='spotifyPlaylist'>
+            <div className='spotify activeFadeIn'>
+                {this.state.loading ? 
+                 <div>
+                 <List style={{ width: '100%' }} />
+                 </div> 
+                 :
+                    <div className='spotifyPlaylist activeFadeIn'>
                         {this.state.data && this.state.data.map((lists)=>{
                             console.log('lists', lists)
                             return <iframe src={lists} width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
                         })}
                     </div>
+                }
+                    
                     {/* <iframe width="560" height="315" src="http://www.youtube.com/embed/0vrdgDdPApQ?playlist=cbut2K6zvJY,7iw30sK2UCo,sYV5MTy0v1I" frameborder="0" allowfullscreen></iframe> */}
                  </div>
         )

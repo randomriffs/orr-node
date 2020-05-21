@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './dribbComponent.css'
 import ReactPlayer from 'react-player'
+import axios from 'axios';
+import ContentLoader, { List } from 'react-content-loader'
 
 export default class DribbComponent extends Component {
     state = {
@@ -8,12 +10,13 @@ export default class DribbComponent extends Component {
         fyodorOne: '',
         fyodorTwo: '',
         fyodorThree: '',
+        fyLoading: true,
+        gifLoading: true
     }
     componentDidMount() {
-        fetch("https://randomriffs.herokuapp.com/api/random/gifs")
-            .then(res => res.json())
+        axios.get("https://randomriffs.herokuapp.com/api/random/gifs")
             .then((result) => {
-                let data = result.data;
+                let data = result.data.data;
                 console.log('data', data)
                 let dataLen = data.length;
                 console.log('dataLeng', dataLen)
@@ -29,23 +32,22 @@ export default class DribbComponent extends Component {
                 } else {
                     gifs = data[randomGif]
                 }
-                this.setState({ gif: gifs });
+                this.setState({ gif: gifs, gifLoading: false });
             },
                 (error) => {
                     this.setState({ error });
                 })
 
         // fyodor
-        fetch("https://randomriffs.herokuapp.com/api/random/fyodor")
-            .then(res => res.json())
+        axios.get("https://randomriffs.herokuapp.com/api/random/fyodor")
             .then((result) => {
-                let totalLen =  result.data.length;
-                let first = result.data.slice(0,(((result.data.length)/2)-12))
-                let second = result.data.slice((((result.data.length)/2)-12),(((result.data.length)/2)+12))
-                let third = result.data.slice((((result.data.length)/2)+12),result.data.length);
+                let totalLen = result.data.data.length;
+                let first = result.data.data.slice(0, (((result.data.data.length) / 2) - 12))
+                let second = result.data.data.slice((((result.data.data.length) / 2) - 12), (((result.data.data.length) / 2) + 12))
+                let third = result.data.data.slice((((result.data.data.length) / 2) + 12), result.data.data.length);
                 // console.log('fyodo acutal', result.data)
                 // console.log('splided fyood', `${first}${second}${third}`)
-                this.setState({ fyodorOne: first, fyodorTwo: second, fyodorThree: third});
+                this.setState({ fyodorOne: first, fyodorTwo: second, fyodorThree: third, fyLoading: false });
             },
                 (error) => {
                     this.setState({ error });
@@ -55,20 +57,31 @@ export default class DribbComponent extends Component {
     render() {
         return (
             <div className='dribb'>
-                <div className='flex-bs'>
-                    <h3 className='some-text'>
-        <p>{this.state.fyodorOne}<span className='typewriter'>{this.state.fyodorTwo}</span>{this.state.fyodorThree}</p>
-                    </h3>
-                </div>
-                {/* <h3>{this.state.gif}</h3><br></br> */}
-                <div className='flex-bs'>
-                    {this.state.gif.endsWith("gif") ?
-                        <img width="400" src={this.state.gif}>
-                        </img>
-                        :
-                        <ReactPlayer url={this.state.gif} playing={true} loop={true} volume={0} muted />
-                    }
-                </div>
+                {
+                    this.state.fyLoading ?
+                        <div>
+                        <List style={{ width: '100%' }} />
+                        </div> :
+                        <div className='flex-bs activeFadeIn'>
+                            <h3 className='some-text'>
+                                <p>{this.state.fyodorOne}<span className='typewriter'>{this.state.fyodorTwo}</span>{this.state.fyodorThree}</p>
+                            </h3>
+                        </div>
+                }
+
+                {
+                    this.state.gifLoading ?
+                    <List style={{ width: '100%' }} />:
+                        <div className='flex-bs'>
+                            {this.state.gif.endsWith("gif") ?
+                                <img width="400" src={this.state.gif}>
+                                </img>
+                                :
+                                <ReactPlayer url={this.state.gif} playing={true} loop={true} volume={0} muted />
+                            }
+                        </div>
+                }
+
             </div>
         )
     }

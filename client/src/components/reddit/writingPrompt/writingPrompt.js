@@ -1,16 +1,18 @@
 import React, { Component } from 'react'
 import './writingPrompt.css'
+import axios from 'axios';
+import { List } from 'react-content-loader'
 
 let wpList = []
 export default class WritingPromptComponent extends Component {
     state = {
-        data: []
+        data: [],
+        loading:true
     }
     componentDidMount() {
-        fetch("https://www.reddit.com/r/WritingPrompts.json")
-            .then(res => res.json())
+        axios.get("https://www.reddit.com/r/WritingPrompts.json")
             .then((result) => {
-                let stData = result.data.children;
+                let stData = result.data.data.children;
                 stData.map((dataList) => {
                     let dataSt= dataList.data.title;
                     if (wpList.length <12) {
@@ -18,7 +20,7 @@ export default class WritingPromptComponent extends Component {
                     }
                 })
                 console.log('ytlist', wpList)
-                this.setState({ data: wpList.slice(7,wpList.length) })
+                this.setState({ data: wpList.slice(7,wpList.length), loading:false })
 
             },
                 (error) => {
@@ -27,12 +29,21 @@ export default class WritingPromptComponent extends Component {
     }
     render() {
         return (
-            <div className='sub-reddit wp'>
-                {this.state.data && this.state.data.map((data)=>{
-                    return <p>{data}</p>
-                })}
-                {/* <div className='seventyfive'>七十五</div> */}
+            <div>
+                {
+                    this.state.loading ?
+                    <div>
+                    <List style={{ width: '100%' }} />
+                </div> :
+                      <div className='sub-reddit wp activeFadeIn'>
+                      {this.state.data && this.state.data.map((data)=>{
+                          return <p>{data}</p>
+                      })}
+                      {/* <div className='seventyfive'>七十五</div> */}
+                  </div>
+                }
             </div>
+      
         )
     }
 }

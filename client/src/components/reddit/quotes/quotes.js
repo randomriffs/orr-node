@@ -1,16 +1,19 @@
 import React, { Component } from 'react'
 import './quotes.css'
+import axios from 'axios';
+import { List } from 'react-content-loader'
 
 let qList = []
 export default class QuotesComponent extends Component {
     state = {
-        data: []
+        data: [],
+        loading:true
     }
     componentDidMount() {
-        fetch("https://www.reddit.com/r/quotes.json")
-            .then(res => res.json())
+        axios.get("https://www.reddit.com/r/quotes.json")
             .then((result) => {
-                let stData = result.data.children;
+                console.log('result quote', result)
+                let stData = result.data.data.children;
                 stData.map((dataList) => {
                     let dataSt= dataList.data.title;
                     if (qList.length <10) {
@@ -18,7 +21,7 @@ export default class QuotesComponent extends Component {
                     }
                 })
                 console.log('ytlist', qList)
-                this.setState({ data: qList.slice(5,qList.length) })
+                this.setState({ data: qList.slice(5,qList.length), loading:false })
 
             },
                 (error) => {
@@ -27,12 +30,20 @@ export default class QuotesComponent extends Component {
     }
     render() {
         return (
-            <div className='sub-reddit q'>
-                {this.state.data && this.state.data.map((data)=>{
-                    return <p>{data}</p>
-                })}
-                <div className='three'>375</div>
+            <div>
+                {
+                    this.state.loading ? 
+                    <List style={{ width: '100%' }} />
+                    :
+                    <div className='sub-reddit q activeFadeIn'>
+                    {this.state.data && this.state.data.map((data)=>{
+                        return <p>{data}</p>
+                    })}
+                    <div className='three'>375</div>
+                </div>
+                }
             </div>
+         
         )
     }
 }

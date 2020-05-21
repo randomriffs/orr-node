@@ -2,7 +2,8 @@ const intialState = {
     blogsData: {},
     message: '',
     tasksData: {},
-    loading: false
+    loading: false,
+    getBlogLoading: false,
 }
 const homeReducer = (state = intialState, action) => {
     switch (action.type) {
@@ -32,6 +33,16 @@ const homeReducer = (state = intialState, action) => {
             return {
                 ...state,
                 loading: false
+            }
+        case 'GETBLOGLOADINGON':
+            return {
+                ...state,
+                getBlogLoading:true
+            }
+        case 'GETBLOGLOADINGOFF':
+            return {
+                ...state,
+                getBlogLoading:false
             }
 
         default:

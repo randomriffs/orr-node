@@ -4,14 +4,14 @@ const isDev = false;
 const URL = isDev ? 'http://localhost:3000' : 'https://randomriffs.herokuapp.com'
 
 function* getBlogs(){
-  yield put({type:'LOADINGON'})
+  yield put({type:'GETBLOGLOADINGON'})
   const result = yield axios.get(URL+'/api/blogs')
   .then(response=>{
     return response.data
   })
 
   yield put({type:'GETBLOGSUCCESS',payload:result})
-  yield put({type:'LOADINGOFF'})
+  yield put({type:'GETBLOGLOADINGOFF'})
 }
 
 function* getTasks(){

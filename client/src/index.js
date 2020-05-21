@@ -9,6 +9,9 @@ import createSagaMiddleware from 'redux-saga';
 import rootReducer from './store/reducers/rootReducer'
 import { Provider } from 'react-redux';
 import rootSaga from './store/sagas/index'
+import { loadProgressBar } from 'axios-progress-bar'
+console.log('loadProgressBar()', loadProgressBar())
+loadProgressBar();
 
 const sagaMiddleware = createSagaMiddleware();
 const store = createStore(rootReducer, applyMiddleware(sagaMiddleware))

@@ -3,6 +3,7 @@ import './blogComponent.css'
 
 export function BlogComponent(props){
   console.log("blogsdata", props)
+ 
   let data = null;
   if(!props.isReadMore){
     data = props && props.blogs && props.blogs.blogsData && props.blogs.blogsData.length > 0 && props.blogs.blogsData.slice(0,3);
@@ -11,7 +12,7 @@ export function BlogComponent(props){
   }
   return (
     <React.Fragment>
-      <div className="scew-container">
+      <div className="scew-container activeFadeIn">
       <div class="blog-container">
         <ul>
           {data && data.length>0 && data.map((blog, index) => {
