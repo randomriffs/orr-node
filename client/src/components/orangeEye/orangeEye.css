@@ -74,3 +74,29 @@
     z-index: 6;
     bottom: -27%;
 }
+
+@media only screen 
+and (max-device-width: 700px)
+and (-webkit-min-device-pixel-ratio: 2) {
+    .orange-eye {
+        height: 200px;
+    }
+    .amelie, .eva, .triangle, .textone, .textfour{
+        text-align: center;
+    }
+    .textone, .texttwo, .textthree , .textfour{
+        right: 94px;
+        top: 54px;
+    }
+    .amelie {
+        right: 62px;
+    }
+    .eva {
+        top: 126px;
+        right: 86px;
+    }
+
+    img {
+        height: 240px;
+    }
+}

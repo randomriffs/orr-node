@@ -4,12 +4,13 @@
 .camel-page-container{
     display: flex;
     justify-content: center;
-    margin: 2em 18em;
+    margin: 2em 20%;
     flex-direction: column;
 }
 .image-div{
     position: relative;
     width: 100%;
+    font-size: 1vw;
 }
 .image-div p:nth-child(1) {
     position: absolute;
@@ -54,11 +55,11 @@
     color:white
 }
 .row-text-one h1{
-    font-size: 200px !important;
+    font-size: 15vw !important;
     font-weight: 900;
     margin-top: 0px;
     margin-bottom: 0px;
-    letter-spacing: -30px;
+    letter-spacing: -3vw;
     text-shadow: 0px 1px, 1px 0px, 1px 1px;
    
 }
@@ -71,7 +72,7 @@
 }
 .candc-mini{
     position: absolute;
-    font-size: 20px !important;
+    font-size: 1.5vw !important;
     top: 60%;
     right: 21%;
     font-weight: 900;
@@ -91,4 +92,57 @@
 }
 .black-container .red-cross{
     color: #C5231C;
+    font-size: 2vw;
+}
+.row-text-three {
+    font-size: 2vw;
+}
+
+@media only screen 
+and (max-device-width: 700px)
+and (-webkit-min-device-pixel-ratio: 2) {
+ .camel-page-container {
+     margin:0px;
+ }
+ .image-div {
+     font-size: 8px;
+ }
+ .image-div p:nth-child(2){
+     top: 0px;
+     right: 15px;
+ }
+ .image-div p:nth-child(3){
+     top: 0px;
+     right: 35px;
+ }
+ .image-div p:nth-child(4){
+     top: 0px;
+     right: 55px;
+ }
+ .image-div p:nth-child(5){
+     top: 0px;
+     right: 75px;
+ }
+ .image-div img {
+     height: 40vw;
+ }
+ .row-text-one h1 {
+     font-size: 23vw !important;
+     letter-spacing: -15px;
+     /* text-align: center; */
+     width: 100%;
+ }
+ .candc-mini{
+     font-size: 3vw !important;
+     right: 20vw;
+ }
+ .row-text-two h1{
+    font-size: 20vw !important;
+ }
+ .row-text-three {
+    font-size: 3.5vw;
+}
+.black-container .red-cross{
+  font-size: 3.5vw;
+}
 }

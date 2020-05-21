@@ -1,7 +1,8 @@
 .dribb {
-    margin: 12em 12em;
+    margin: 12em 10%;
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .dribb .flex-bs {
@@ -21,4 +22,17 @@ h3 {
     line-height: 1;
     /* background-color:#cacaca; */
     /* transform: rotate(-12deg); */
+}
+
+
+@media only screen 
+and (max-device-width: 700px)
+and (-webkit-min-device-pixel-ratio: 2) {
+.dribb {
+    margin-top: 50px;
+    margin-bottom: 0px;
+}
+.flex-bs div{
+    width: 100% !important;
+}
 }

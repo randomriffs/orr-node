@@ -2,6 +2,7 @@
     display: flex;
     justify-content: space-evenly;
     margin-bottom: 9em;
+    flex-wrap: wrap;
 }
 .spotifyPlaylist iframe {
     flex-basis: 25%;
@@ -17,4 +18,11 @@
 
 .spotify {
     margin: 3em 3em;
+}
+@media only screen 
+and (max-device-width: 700px)
+and (-webkit-min-device-pixel-ratio: 2) {
+.spotifyPlaylist iframe{
+    padding: 20px;
+}
 }

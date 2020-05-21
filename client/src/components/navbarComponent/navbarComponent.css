@@ -1,7 +1,7 @@
 .nav-container {
     display: flex;
     justify-content: space-between;
-    margin: 3em 6em;
+    margin: 3em 7%;
 }
 .nav-container ul{
     display: flex;
@@ -13,4 +13,14 @@
 }
 .nav-container a {
     text-decoration: none;
+}
+@media only screen 
+  and (max-device-width: 700px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+    .nav-container {
+        margin: 2em 10%;
+    }
+    #date {
+        display: none !important;
+    }
 }

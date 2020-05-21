@@ -48,3 +48,32 @@
     margin-left: 7%;
     padding-bottom: 30px;
 }
+@media only screen 
+and (max-device-width: 700px)
+and (-webkit-min-device-pixel-ratio: 2) {
+.white-container {
+    margin: 0 15%;
+}
+.lopes-image p {
+    margin-top: 16vw;
+    margin-left: 5vw;
+    font-size: 5vw;
+}
+.lopes-image img{
+    max-height: 24vw;
+}
+.lopes-image {
+    padding-top: 15vw;
+}
+.manda-div h1{
+    font-size: 7vw;
+    margin-top: 10vw;
+}
+.manda-div p{
+    margin-right: 15%;
+    font-size: 3vw;
+}
+.manda-div h3{
+    padding-bottom: 0;
+}
+}

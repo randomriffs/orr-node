@@ -1,4 +1,8 @@
 
+.home-container {
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+}
 .title-right{
     position: absolute;
     writing-mode: vertical-lr;
@@ -18,23 +22,27 @@
     display: flex;
     justify-content: space-evenly;
     /* padding: 32px; */
-    margin: 3em 6em;
+    margin: 3em 5%;
     margin-top: 10em;
     /* margin-bottom: 15em; */
+    flex-wrap: wrap;
    
 }
 .grey-container .script-echo {
     flex-basis: 25%;
     /* text-align: left; */
     text-align: center;
+   flex-grow: 2;
 }
 .grey-container .book-logs {
     flex-basis: 25%;
     text-align: center;
+    flex-grow: 2;
 }
 .grey-container .of-old-hat {
     flex-basis: 25%;
     text-align: center;
+    flex-grow: 2;
 }
 .grey-container h1 {
     font-size: 2.5em;
@@ -116,7 +124,7 @@
      transform:  translateX(-50%) translateY(-50%) rotate(-90deg);
      width: 4%;
      display: block;
-    margin: 17em auto;
+    margin: 17% auto;
   }
   
   
@@ -139,4 +147,27 @@
       background-position: 500px 19px;
     }
   }
+  @media only screen 
+  and (max-device-width: 700px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+  .grey-container .script-echo{
+      flex-grow: 1;
+      padding: 0;
+  }
+  .grey-container .of-old-hat {
+      flex-grow: 1;
+      padding: 0;
+     
+  }
+  .grey-container .book-logs {
+    flex-grow: 1;
+      padding: 0;
+      width: 100%;
+  }
+  .grey-container {
+      margin: 50px 10%;
+      
+      
+  }
+}
   

@@ -45,3 +45,19 @@
     flex-direction: column;
     text-align: center;
 }
+@media only screen 
+and (max-device-width: 700px)
+and (-webkit-min-device-pixel-ratio: 2) {
+.paint-two{
+    font-size: 40vw;
+}
+.main-text h1{
+    font-size: 41vw;
+}
+.right-text {
+    font-size: 5vw;
+}
+.left-text {
+    font-size: 3vw;
+}
+}

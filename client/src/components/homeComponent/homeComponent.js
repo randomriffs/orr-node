@@ -69,10 +69,10 @@ class HomeComponent extends Component {
         console.log('home reducer', this.props.home)
         return (
             <div className="home-container"> 
-               <h1 className="title-right blog-text" onClick={() => this.props.history.push('/addpostrn')}>Blog</h1>
+               {/* <h1 className="title-right blog-text" onClick={() => this.props.history.push('/addpostrn')}>Blog</h1> */}
                 <BlogComponent blogs={this.props.home} fetchBlogDetail={(blog) => this.fetchBlogDetail(blog)} deletePost={(blog) => this.deletePost(blog)} isReadMoreFunc={this.isReadMore} isReadMore={this.state.isReadMore} />
-                <h1 className="title-right task-text">Tasks</h1>
-                <TaskComponent tasks={this.props.home.tasksData} />
+                {/* <h1 className="title-right task-text">Tasks</h1> */}
+                {/* <TaskComponent tasks={this.props.home.tasksData} /> */}
                 <div className="grey-container">
                     <ScripEchoComponent />
                     <BookLogsComponent />

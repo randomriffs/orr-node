@@ -39,3 +39,29 @@ font-size: 20em;
 .pp {
     font-weight: 700 !important;
 }
+
+@media only screen 
+and (max-device-width: 700px)
+and (-webkit-min-device-pixel-ratio: 2) {
+    .purple-page h1 {
+        font-size: 6em;
+        padding: 0;
+       padding-top:55px ;
+    }
+    .purple-page {
+        height: 205px;
+    }
+    .facemirror {
+        height: 333px;
+        /* transform: rotateX(90deg); */
+    }
+    .red-page {
+        display: block;
+    background-color: #007892;
+    height: 380px;
+    text-align: center;
+    }
+    .red-page h1 {
+        font-size: 6em;
+    }
+}

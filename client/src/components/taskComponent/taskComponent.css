@@ -28,3 +28,13 @@
     color: white;
     font-size: 1em;
 }
+@media only screen 
+  and (max-device-width: 700px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+    .nav-container {
+        margin: 2em 10%;
+    }
+    ul {
+        display: none !important;
+    }
+}

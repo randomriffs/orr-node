@@ -16,11 +16,11 @@ export default function NavbarComponent() {
         <div className="nav-container container">
             {/* <img className="header-img"></img> */}
             <Link to='/'><h1>Orr</h1></Link>
-            <ul>
+            <ul id='date'>
                 <li>
                     {/* <Link to='/'>Home</Link>   */}
                     {/* <p>{currentDate}</p> */}
-{date}
+                    {date}
                 </li>
                 <li>
                     {/* <a href="#">Admin</a> */}
