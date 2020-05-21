@@ -11,7 +11,7 @@ let filmList = ['dunkirk', 'forrest-gump', 'moonlight', 'no-country-for-old-men'
     , 'django-unchained', 'fight-club', 'inglourious-basterds', 'reservoir-dogs', 'godfather'
     , 'grand-budapest', 'godfather-2', 'catch-me-if-you-can', 'hacksaw-ridge', 'inception', 'into-the-wild'
     , 'rango', 'whiplash', 'amelie', 'coffee-and-cigarettes', 'the-misfortunates', 'the-white-balloon'
-    , 'bullitt', 'earth', 'the-magnificent-seven', 'tony-manero']
+    , 'bullitt', 'earth', 'the-magnificent-seven', 'tony-manero','portrait-of-a-lady-on-fire']
 
 let books = ['1984', 'catcher-in-the-rye', 'fahrenheit-451', 'grapes-of-wrath', 'of-mice-and-men', 'orlando',
     'the-brother-karamazov', 'the-illiad', 'the-odyssey']
