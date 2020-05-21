@@ -31,7 +31,7 @@ module.exports.tweet = () => {
                 console.log('random saying id', randomSaying)
                 console.log(sayings[randomSaying])
                 // res.json({ status: true, sayings: sayings[randomSaying], film: filmList[randomFilm] })
-                if(sayings[randomSaying].length>33){
+                if(sayings[randomSaying].length>=15){
                     tweet.status = sayings[randomSaying] // .replace(/ /g, "")
                     Twitter.post('statuses/update', tweet, tweeted)
                     function tweeted(err, data, response) {
@@ -54,6 +54,6 @@ module.exports.tweet = () => {
         });
     }
     // tweetSaying();
-    setInterval(tweetSaying, 1000 * 1320);
+    setInterval(tweetSaying, 1000 * 2220);
 }
 
