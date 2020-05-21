@@ -6,7 +6,7 @@ module.exports.tweet = () => {
         , 'django-unchained', 'fight-club', 'inglourious-basterds', 'reservoir-dogs', 'godfather'
         , 'grand-budapest', 'godfather-2', 'catch-me-if-you-can', 'hacksaw-ridge', 'inception', 'into-the-wild'
         , 'rango', 'whiplash', 'amelie', 'coffee-and-cigarettes', 'the-misfortunates', 'the-white-balloon'
-        , 'bullitt','earth', 'the-magnificent-seven', 'tony-manero']
+        , 'bullitt','earth', 'the-magnificent-seven', 'tony-manero', 'portrait-of-a-lady-on-fire']
 
     const Twit = require('twit');
     const config = require('../config/twit');
