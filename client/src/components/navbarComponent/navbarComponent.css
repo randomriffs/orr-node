@@ -19,6 +19,7 @@
   and (-webkit-min-device-pixel-ratio: 2) {
     .nav-container {
         margin: 2em 10%;
+        margin-bottom: 0 !important;
     }
     #date {
         display: none !important;
