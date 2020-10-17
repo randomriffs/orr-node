@@ -13,18 +13,26 @@ app.use('/', router);
 var cron = require('node-cron');
 
 
-// scriptEcho 
+// scriptEcho prod
 var scriptEcho = require('./firestore/scriptEcho')
 scriptEcho.tweet();
 
-// of Old Had
+// of Old Had prod
 var ofOldHat=require('./firestore/ofOldHat')
 ofOldHat.tweet();
 
+// scrapDribb prod
 var scrapDribb = require('./modules/dribb');
 cron.schedule('0 */24 * * *', () => {
     scrapDribb.scrapDrib()
 });
+
+// sadLog.txt prod
+var sadLog = require('./modules/sadLog');
+sadLog.logSad()
+
+
+
 // add words to scriptEcho 
 // var addWordsToScript= require('./modules/addDataScriptEcho')
 // addWordsToScript.addWords();
