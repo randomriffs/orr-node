@@ -27,9 +27,9 @@ cron.schedule('0 */24 * * *', () => {
     scrapDribb.scrapDrib()
 });
 
-// sadLog.txt prod
-var sadLog = require('./modules/sadLog');
-sadLog.logSad()
+// // sadLog.txt 
+// var sadLog = require('./modules/sadLog');
+// sadLog.logSad()
 
 
 
