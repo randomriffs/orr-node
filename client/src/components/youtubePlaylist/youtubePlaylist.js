@@ -41,22 +41,24 @@ export default class YoutubePlaylistComponent extends Component {
 
             },
                 (error) => {
-                    this.setState({ error });
+                    this.setState({ error, loading: false });
                 })
     }
     render() {
         return (
-            <div className='youtube'>
-                {
+            <div >
+                {/* {
                     this.state.loading ?
                         <div>
-                             <List style={{ width: '100%' }} />
-                        </div> :
-                        <div className='activeFadeIn'>
-                            <iframe width="1000" height="500" src={this.state.data} frameborder="0" allowfullscreen></iframe>
+                            <List style={{ width: '100%' }} />
+                        </div> : */}
+                        <div className='youtube'>
+                            <div className='activeFadeIn'>
+                                <iframe width="1000" height="500" src={this.state.data} frameborder="0" allowfullscreen></iframe>
+                            </div>
                         </div>
-                }
-                
+                {/* } */}
+
             </div>
         )
     }

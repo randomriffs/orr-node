@@ -22,6 +22,7 @@ import ChineseFont from '../chineseFont/chineseFont';
 import ContentLoader, { List } from 'react-content-loader'
 
 import './homeComponent.css'
+import { BlackAComponent } from '../blackAComponent/blackAComponent';
 
 
 class HomeComponent extends Component {
@@ -85,6 +86,7 @@ class HomeComponent extends Component {
                 <div className='wave-vt'></div>
                 <ChineseFont />
                 <div className='wave-vt'></div>
+                {/* <BlackAComponent/> */}
                 <Footer />
             </div>
 

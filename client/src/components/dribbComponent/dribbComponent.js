@@ -14,29 +14,29 @@ export default class DribbComponent extends Component {
         gifLoading: true
     }
     componentDidMount() {
-        axios.get("https://randomriffs.herokuapp.com/api/random/gifs")
-            .then((result) => {
-                let data = result.data.data;
-                console.log('data', data)
-                let dataLen = data.length;
-                console.log('dataLeng', dataLen)
-                let randomGif = Math.floor(Math.random() * dataLen)
-                console.log('randomGif', randomGif)
-                console.log('gif', data[randomGif])
-                let gifs = ''
-                // while (data[randomGif].endsWith("?vid=1")){
-                //     gifs = data[randomGif]
-                // }
-                if (data[randomGif].endsWith("?vid=1")) {
-                    gifs = data[randomGif].substr(0, data[randomGif].length - 6)
-                } else {
-                    gifs = data[randomGif]
-                }
-                this.setState({ gif: gifs, gifLoading: false });
-            },
-                (error) => {
-                    this.setState({ error });
-                })
+        // axios.get("https://randomriffs.herokuapp.com/api/random/gifs")
+            // .then((result) => {
+            //     let data = result.data.data;
+            //     console.log('data', data)
+            //     let dataLen = data.length;
+            //     console.log('dataLeng', dataLen)
+            //     let randomGif = Math.floor(Math.random() * dataLen)
+            //     console.log('randomGif', randomGif)
+            //     console.log('gif', data[randomGif])
+            //     let gifs = ''
+            //     // while (data[randomGif].endsWith("?vid=1")){
+            //     //     gifs = data[randomGif]
+            //     // }
+            //     if (data[randomGif].endsWith("?vid=1")) {
+            //         gifs = data[randomGif].substr(0, data[randomGif].length - 6)
+            //     } else {
+            //         gifs = data[randomGif]
+            //     }
+            //     this.setState({ gif: gifs, gifLoading: false });
+            // },
+            //     (error) => {
+            //         this.setState({ error });
+            //     })
 
         // fyodor
         axios.get("https://randomriffs.herokuapp.com/api/random/fyodor")
@@ -70,15 +70,10 @@ export default class DribbComponent extends Component {
                 }
 
                 {
-                    this.state.gifLoading ?
+                    this.state.fyLoading ?
                     <List style={{ width: '100%' }} />:
-                        <div className='flex-bs'>
-                            {this.state.gif.endsWith("gif") ?
-                                <img width="400" src={this.state.gif}>
-                                </img>
-                                :
-                                <ReactPlayer url={this.state.gif} playing={true} loop={true} volume={0} muted />
-                            }
+                        <div className='flex-bs fyodor'>
+                           <h1><span className="f">F</span>yodor <br></br>Dostoyevsky </h1>
                         </div>
                 }
 

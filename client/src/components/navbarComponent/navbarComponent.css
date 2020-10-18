@@ -10,6 +10,9 @@
 
 .nav-container li {
     padding-left: 20px;
+    display: flex;
+    align-items: center;
+    font-weight: 600;
 }
 .nav-container a {
     text-decoration: none;

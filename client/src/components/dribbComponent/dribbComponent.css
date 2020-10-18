@@ -3,6 +3,7 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    position: relative;
 }
 
 .dribb .flex-bs {
@@ -22,6 +23,16 @@ h3 {
     line-height: 1;
     /* background-color:#cacaca; */
     /* transform: rotate(-12deg); */
+}
+
+.fyodor{
+    font-size: 3em;
+    position: absolute;
+    right: 0;
+}
+.f {
+    background-color: red;
+    letter-spacing: 30px;
 }
 
 
