@@ -11,7 +11,7 @@ let filmList = ['dunkirk', 'forrest-gump', 'moonlight', 'no-country-for-old-men'
     , 'django-unchained', 'fight-club', 'inglourious-basterds', 'reservoir-dogs', 'godfather'
     , 'grand-budapest', 'godfather-2', 'catch-me-if-you-can', 'hacksaw-ridge', 'inception', 'into-the-wild'
     , 'rango', 'whiplash', 'amelie', 'coffee-and-cigarettes', 'the-misfortunates', 'the-white-balloon'
-    , 'bullitt', 'earth', 'the-magnificent-seven', 'tony-manero','portrait-of-a-lady-on-fire']
+    , 'bullitt', 'earth', 'the-magnificent-seven', 'tony-manero', 'portrait-of-a-lady-on-fire']
 
 let books = ['1984', 'catcher-in-the-rye', 'fahrenheit-451', 'grapes-of-wrath', 'of-mice-and-men', 'orlando',
     'the-brother-karamazov', 'the-illiad', 'the-odyssey']
@@ -228,57 +228,57 @@ router.get('/api/random/gifs', (req, res) => {
                 snapshot.forEach(doc => {
                     console.log(doc.id, '=>', doc.data());
                     res.json({
-                        data:doc.data().data,
-                        status:true
+                        data: doc.data().data,
+                        status: true
                     })
                 });
             }
         })
-            // docRef.get().then(function (doc) {
-            //     if (doc.exists) {
-            //         let verses = doc.data().data;
-            //         let versesSize = verses.length - 1;
-            //         let randomVerses = Math.floor(Math.random() * versesSize);
-            //         console.log('random verses', randomVerses)
-            //         console.log(verses[randomVerses])
-            //         res.json({
-            //             status:true,
-            //             verse:verses[randomVerses],
-            //             book:randomBook.replace(/-/g,' ')
-            //         })
+    // docRef.get().then(function (doc) {
+    //     if (doc.exists) {
+    //         let verses = doc.data().data;
+    //         let versesSize = verses.length - 1;
+    //         let randomVerses = Math.floor(Math.random() * versesSize);
+    //         console.log('random verses', randomVerses)
+    //         console.log(verses[randomVerses])
+    //         res.json({
+    //             status:true,
+    //             verse:verses[randomVerses],
+    //             book:randomBook.replace(/-/g,' ')
+    //         })
 
-            //     } else {
-            //         // doc.data() will be undefined in this case
-            //         console.log("No such document!");
-            //         // res.json({ status: false })
-            //     }
-            // }).catch(function (error) {
-            //     console.log("Error getting document:", error);
-            // });
+    //     } else {
+    //         // doc.data() will be undefined in this case
+    //         console.log("No such document!");
+    //         // res.json({ status: false })
+    //     }
+    // }).catch(function (error) {
+    //     console.log("Error getting document:", error);
+    // });
 
-        })
+})
 
-        router.get('/api/random/fyodor', (req, res) => {
-            let fyPage = Math.floor(Math.random() * 197) + 1;
-            var docRef = db.collection("fyodor").doc('page' + '-' + fyPage);
-            console.log('fyPage', fyPage)
-            docRef.get().then(function (doc) {
-                if (doc.exists) {
-                    let dataQt = doc.data().data;
-                    let docRandom = Math.floor(Math.random() * (dataQt.length-1));
-                    res.json({
-                        data:dataQt[docRandom],
-                        status:true
-                    })
-        
-                } else {
-                    // doc.data() will be undefined in this case
-                    console.log("No such document!");
-                    // res.json({ status: false })
-                }
-            }).catch(function (error) {
-                console.log("Error getting document:", error);
-            });   
-             })
+router.get('/api/random/fyodor', (req, res) => {
+    let fyPage = Math.floor(Math.random() * 197) + 1;
+    var docRef = db.collection("fyodor").doc('page' + '-' + fyPage);
+    console.log('fyPage', fyPage)
+    docRef.get().then(function (doc) {
+        if (doc.exists) {
+            let dataQt = doc.data().data;
+            let docRandom = Math.floor(Math.random() * (dataQt.length - 1));
+            res.json({
+                data: dataQt[docRandom],
+                status: true
+            })
 
-    module.exports = router;
+        } else {
+            // doc.data() will be undefined in this case
+            console.log("No such document!");
+            // res.json({ status: false })
+        }
+    }).catch(function (error) {
+        console.log("Error getting document:", error);
+    });
+})
+
+module.exports = router;

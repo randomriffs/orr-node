@@ -21,17 +21,23 @@ scriptEcho.tweet();
 var ofOldHat=require('./firestore/ofOldHat')
 ofOldHat.tweet();
 
-// scrapDribb prod
-var scrapDribb = require('./modules/dribb');
-cron.schedule('0 */24 * * *', () => {
-    scrapDribb.scrapDrib()
+// gooseWritings prod
+var gooseWritings = require('./modules/gooseWritings');
+gooseWritings.goose();
+cron.schedule("*/10 * * * *", () => {
+gooseWritings.goose();
 });
+
+
+// // scrapDribb 
+// var scrapDribb = require('./modules/dribb');
+// cron.schedule('0 */24 * * *', () => {
+//     scrapDribb.scrapDrib()
+// });
 
 // // sadLog.txt 
 // var sadLog = require('./modules/sadLog');
 // sadLog.logSad()
-
-
 
 // add words to scriptEcho 
 // var addWordsToScript= require('./modules/addDataScriptEcho')
