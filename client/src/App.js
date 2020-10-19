@@ -9,6 +9,7 @@ import { connect } from 'react-redux';
 import BlogDetailsComponent from './components/blogDetailsComponent/blogDetailsComponent';
 import BlogEditForm from './components/blogEditForm/blogEditForm';
 import AllPostComponent from './components/allPostComponent/allPostComponent';
+import GooseWritings from './components/gooseWritings/gooseWritings';
 
 class App extends Component {
   // componentDidMount(){
