@@ -23,6 +23,7 @@ import ContentLoader, { List } from 'react-content-loader'
 
 import './homeComponent.css'
 import { BlackAComponent } from '../blackAComponent/blackAComponent';
+import GooseWritings from '../gooseWritings/gooseWritings';
 
 
 class HomeComponent extends Component {
@@ -87,6 +88,8 @@ class HomeComponent extends Component {
                 <ChineseFont />
                 <div className='wave-vt'></div>
                 {/* <BlackAComponent/> */}
+                <GooseWritings/>
+                <div className='wave-vt'></div>
                 <Footer />
             </div>
 

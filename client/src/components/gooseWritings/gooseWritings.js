@@ -39,11 +39,11 @@ export default class GooseWritings extends Component {
                                     })
                                 }
                             </ol>
-                            <div className="gooseFooter">
-                            <a href="https://twitter.com/goosewritings" target="_blank">@goosewritings</a><br></br>
+                            {/* <div className="gooseFooter">
+                            <a href="https://twitter.com/goosewritings" target="_blank">@goosewritings</a><br></br> */}
                             {/* <a href="https://twitter.com/orejeods/" target="_blank">@orejeods</a> */}
-                            </div>
-                            <hr className="gooseHr"></hr>
+                            {/* </div>
+                            <hr className="gooseHr"></hr> */}
                         </div>
                 }
 

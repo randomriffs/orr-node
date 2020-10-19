@@ -24,7 +24,7 @@ ofOldHat.tweet();
 // gooseWritings prod
 var gooseWritings = require('./modules/gooseWritings');
 gooseWritings.goose();
-cron.schedule("*/10 * * * *", () => {
+cron.schedule("0 * * * *", () => {
 gooseWritings.goose();
 });
 
