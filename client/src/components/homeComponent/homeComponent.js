@@ -24,7 +24,8 @@ import ContentLoader, { List } from 'react-content-loader'
 import './homeComponent.css'
 import { BlackAComponent } from '../blackAComponent/blackAComponent';
 import GooseWritings from '../gooseWritings/gooseWritings';
-
+import FooterComponent from '../footer/footerComponent';
+import TodoComponent from '../todoComponent/todoComponent';
 
 class HomeComponent extends Component {
     state = {
@@ -90,6 +91,7 @@ class HomeComponent extends Component {
                 {/* <BlackAComponent/> */}
                 <GooseWritings/>
                 <div className='wave-vt'></div>
+                <TodoComponent/>
                 <Footer />
             </div>
 

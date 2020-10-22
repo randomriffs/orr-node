@@ -24,8 +24,15 @@ ofOldHat.tweet();
 // gooseWritings prod
 var gooseWritings = require('./modules/gooseWritings');
 gooseWritings.goose();
-cron.schedule("0 * * * *", () => {
+cron.schedule("0 */6 * * *", () => {
 gooseWritings.goose();
+});
+
+// fuckWithWord prod
+var fuckWithWord = require('./firestore/fuckWithWord')
+fuckWithWord.tweet();
+cron.schedule("*/15 * * * *", () => {
+fuckWithWord.tweet();
 });
 
 
