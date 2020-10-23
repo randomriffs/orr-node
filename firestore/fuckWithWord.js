@@ -37,7 +37,8 @@ module.exports.tweet = () => {
         docRef.get().then(function (doc) {
             if (doc.exists) {
                 let fuckWord = getFuckWord(doc.data().data);
-                if (fuckWord.length >= 12) {
+                let ignoreWord = ['mother','father','brother','sister']
+                if (fuckWord.length >= 12 && !(ignoreWord.includes(fuckWord))) {
                     tweet.status = fuckWord;
                     console.log(fuckWord)
                     Twitter.post('statuses/update', tweet, tweeted)

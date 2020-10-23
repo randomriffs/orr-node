@@ -53,7 +53,7 @@ module.exports.tweet = () => {
             console.log("Error getting document:", error);
         });
     }
-    // tweetSaying();
+    tweetSaying();
     setInterval(tweetSaying, 1000 * 2220);
 }
 

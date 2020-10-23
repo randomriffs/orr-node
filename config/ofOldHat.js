@@ -1,6 +1,6 @@
 module.exports = {
-    consumer_key: 'MNX88lnyA3Jv19EV0sQ8OitL8',
-    consumer_secret: '2xQHTRJZc7UNIorkb1zXT53aiLVB1SdY2nWD6jQytcJ56kfgI6',
-    access_token:'1213199073458548736-mwgS50KZS9s4XNCEQwzbbs1IUZqROO',
-    access_token_secret: 'wIOr9cFMtTksqyxaZcy4eV9AYngwhkhRL2gbL7TQgF5NF'
+    consumer_key: process.env.OF_OLD_HAT_CONSUMER_KEY,
+    consumer_secret: process.env.OF_OLD_HAT_CONSUMER_KEY_SECRET,
+    access_token: process.env.OF_OLD_HAT_ACCESS_TOKEN,
+    access_token_secret: process.env.OF_OLD_HAT_ACCESS_TOKEN_SECRET,
 }

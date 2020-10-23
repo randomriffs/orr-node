@@ -1,6 +1,6 @@
 module.exports.logSad = () => {
     const Twit = require('twit');
-    const config = require('../config/sadLog');
+    // const config = require('../config/sadLog');
     const Twitter = new Twit(config);
     let tweetCount = 0;
     let previousTweetId = '1317512390099922945'

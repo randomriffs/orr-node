@@ -11,6 +11,7 @@ var router = express.Router();
 var router= require('./router/index');
 app.use('/', router);
 var cron = require('node-cron');
+require('dotenv').config()
 
 
 // scriptEcho prod
