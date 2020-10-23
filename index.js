@@ -31,7 +31,7 @@ gooseWritings.goose();
 // fuckWithWord prod
 var fuckWithWord = require('./firestore/fuckWithWord')
 fuckWithWord.tweet();
-cron.schedule("*/15 * * * *", () => {
+cron.schedule("*/30 * * * *", () => {
 fuckWithWord.tweet();
 });
 
