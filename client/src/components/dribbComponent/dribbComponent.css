@@ -42,8 +42,17 @@ and (-webkit-min-device-pixel-ratio: 2) {
 .dribb {
     margin-top: 50px;
     margin-bottom: 0px;
+    flex-direction: column;
 }
 .flex-bs div{
     width: 100% !important;
+}
+.flex-bs {
+    flex-basis: 0 !important;
+}
+.fyodor {
+    font-size: 1em;
+    position: initial;
+    
 }
 }

@@ -15,7 +15,7 @@ export default function NavbarComponent() {
     return (
         <div className="nav-container container">
             {/* <img className="header-img"></img> */}
-            <Link to='/'><h1>Orr</h1></Link>
+            <Link to='/'><h1 className="orr-title">Orr</h1></Link>
             <ul id='date'>
                 <li>
                     {/* <Link to='/'>Home</Link>   */}

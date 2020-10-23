@@ -17,6 +17,12 @@
 .nav-container a {
     text-decoration: none;
 }
+.orr-title {
+    font-size: 3em;
+    border: 7px solid black;
+    padding: 5px;
+    /* font-weight: 900; */
+}
 @media only screen 
   and (max-device-width: 700px)
   and (-webkit-min-device-pixel-ratio: 2) {

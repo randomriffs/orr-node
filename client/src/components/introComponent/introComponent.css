@@ -1,0 +1,29 @@
+.introComponent p {
+    margin: 1em 7em;
+    padding: 1em 1em;
+    font-size: 2em;
+    line-height: 1.5;
+    border: 10px solid black;
+}
+.introComponent p span {
+    font-size: 3em;
+    -webkit-text-emphasis: dot;
+    /* text-transform: lowercase; */
+}
+
+@media only screen 
+  and (max-device-width: 700px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+    .introComponent p {
+        margin: 1em 1.5em;
+        padding: 1em 1em;
+        font-size: 1.5em;
+        line-height: 1.5;
+        border: 10px solid black;
+    }
+    .introComponent p span {
+        font-size: 1em;
+        -webkit-text-emphasis: dot;
+        /* text-transform: lowercase; */
+    }
+}

@@ -26,6 +26,7 @@ import { BlackAComponent } from '../blackAComponent/blackAComponent';
 import GooseWritings from '../gooseWritings/gooseWritings';
 import FooterComponent from '../footer/footerComponent';
 import TodoComponent from '../todoComponent/todoComponent';
+import IntroComponent from '../introComponent/introComponent';
 
 class HomeComponent extends Component {
     state = {
@@ -63,12 +64,13 @@ class HomeComponent extends Component {
         console.log('home reducer', this.props.home)
         return (
             <div className="home-container">
-                {
+                {/* {
                     this.props.home.getBlogLoading ? <div className=' content-loader'>
                         <List animation={true} ></List>
                     </div>
                         : <BlogComponent blogs={this.props.home} fetchBlogDetail={(blog) => this.fetchBlogDetail(blog)} deletePost={(blog) => this.deletePost(blog)} isReadMoreFunc={this.isReadMore} isReadMore={this.state.isReadMore} />
-                }
+                } */}
+                <IntroComponent></IntroComponent>
                 <div className="grey-container">
                     <ScripEchoComponent />
                     <BookLogsComponent />
@@ -91,7 +93,7 @@ class HomeComponent extends Component {
                 {/* <BlackAComponent/> */}
                 <GooseWritings/>
                 <div className='wave-vt'></div>
-                <TodoComponent/>
+                {/* <TodoComponent/> */}
                 <Footer />
             </div>
 
