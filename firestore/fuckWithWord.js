@@ -48,34 +48,35 @@ module.exports.tweet = () => {
                             withWord()
                         }
                         else {
-                            axios.get('https://api.dictionaryapi.dev/api/v2/entries/en/' + fuckWord.split(' ')[1])
-                                .then(function (response) {
-                                    let definition =
-                                        `Definition: ${response.data[0].meanings[0].definitions[0].definition} 
-${response.data[0].meanings[0].definitions[0].synonyms ?`Synonyms: ${response.data[0].meanings[0].definitions[0].synonyms}`:
-response.data[0].meanings[0].definitions[0].example ? `Example: ${response.data[0].meanings[0].definitions[0].example}`:''}`
+                            // stopping definition reply. the whole else part will work for definition tweet
+//                             axios.get('https://api.dictionaryapi.dev/api/v2/entries/en/' + fuckWord.split(' ')[1])
+//                                 .then(function (response) {
+//                                     let definition =
+//                                         `Definition: ${response.data[0].meanings[0].definitions[0].definition} 
+// ${response.data[0].meanings[0].definitions[0].synonyms ?`Synonyms: ${response.data[0].meanings[0].definitions[0].synonyms}`:
+// response.data[0].meanings[0].definitions[0].example ? `Example: ${response.data[0].meanings[0].definitions[0].example}`:''}`
 
-                                    tweet.in_reply_to_status_id = data.id_str;
-                                    tweet.status = definition;
-                                    Twitter.post('statuses/update', tweet, (err, data, response) => {
-                                        if (err) {
-                                            console.log("Something went wrong!", err);
-                                        } else {
-                                            console.log("Tweeted definition");
-                                        }
-                                    })
-                                }).catch((err) => {
-                                    console.log('error in tweeting definitions', err)
-                                    // tweet.in_reply_to_status_id = data.id_str;
-                                    // tweet.status = "Sorry fella, no definitions found";
-                                    // Twitter.post('statuses/update', tweet, (err, data, response) => {
-                                    //     if (err) {
-                                    //         console.log("Something went wrong!", err);
-                                    //     } else {
-                                    //         console.log("Tweeted no definition found");
-                                    //     }
-                                    // })
-                                });
+//                                     tweet.in_reply_to_status_id = data.id_str;
+//                                     tweet.status = definition;
+//                                     Twitter.post('statuses/update', tweet, (err, data, response) => {
+//                                         if (err) {
+//                                             console.log("Something went wrong!", err);
+//                                         } else {
+//                                             console.log("Tweeted definition");
+//                                         }
+//                                     })
+//                                 }).catch((err) => {
+//                                     console.log('error in tweeting definitions', err)
+//                                     // tweet.in_reply_to_status_id = data.id_str;
+//                                     // tweet.status = "Sorry fella, no definitions found";
+//                                     // Twitter.post('statuses/update', tweet, (err, data, response) => {
+//                                     //     if (err) {
+//                                     //         console.log("Something went wrong!", err);
+//                                     //     } else {
+//                                     //         console.log("Tweeted no definition found");
+//                                     //     }
+//                                     // })
+//                                 });
 
                             console.log("Voila It worked!");
                         }
