@@ -13,7 +13,13 @@ app.use('/', router);
 var cron = require('node-cron');
 require('dotenv').config()
 
-
+// app.use(express.static("build"));
+app.use(express.static(path.join(__dirname, 'client/build')));
+app.get('/', function (req, res) {
+    // res.send('Server is up')
+    res.sendFile(path.join(__dirname+'/build/index.html'));
+    
+});
 // scriptEcho prod
 var scriptEcho = require('./firestore/scriptEcho')
 scriptEcho.tweet();
@@ -24,7 +30,7 @@ ofOldHat.tweet();
 
 // gooseWritings prod
 var gooseWritings = require('./modules/gooseWritings');
-gooseWritings.goose();
+// gooseWritings.goose();
 cron.schedule("0 */6 * * *", () => {
 gooseWritings.goose();
 });

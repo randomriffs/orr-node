@@ -26,11 +26,7 @@ const User = require('../models/userSchema')
 const Blogs = require('../models/blogSchema');
 const Tasks = require('../models/taskSchema')
 // app.use(express.static(path.join(__dirname, '../../build')));
-
-router.get('/', function (req, res) {
-    res.send('Server is up')
-});
-
+// app.use(express.static("build"));
 router.post('/api/login', (req, res) => {
     let userStatus = {}
     console.log('req.bodys', req.body)

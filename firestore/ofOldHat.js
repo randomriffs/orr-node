@@ -49,7 +49,7 @@ module.exports.tweet = () => {
             console.log("Error getting document:", error);
         });
     }
-    ofOldHat();
+    // ofOldHat();
     setInterval(ofOldHat, 1000 * 1980);
 }
 

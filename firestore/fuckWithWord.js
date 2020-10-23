@@ -52,8 +52,7 @@ module.exports.tweet = () => {
                                 .then(function (response) {
                                     let definition =
                                         `Definition: ${response.data[0].meanings[0].definitions[0].definition}
-${response.data[0].meanings[0].definitions[0].synonyms ?
-`Synonyms: ${response.data[0].meanings[0].definitions[0].synonyms}` :
+${response.data[0].meanings[0].definitions[0].synonyms ?`Synonyms: ${response.data[0].meanings[0].definitions[0].synonyms}` :
 `Example: ${response.data[0].meanings[0].definitions[0].example}`}`
 
                                     tweet.in_reply_to_status_id = data.id_str;
