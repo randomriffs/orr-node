@@ -1,3 +1,5 @@
+const ofOldHat = require('../config/ofOldHat');
+
 module.exports.tweet = () => {
     var ofOldModule = require('./db')
     var db = ofOldModule.script.firestore()
@@ -5,7 +7,7 @@ module.exports.tweet = () => {
     const config = require('../config/ofOldHat');
     const Twitter = new Twit(config);
 
-    ofOldHat = () => {
+    ofOldHatTweet = () => {
         let tweet = {
             status: 'test'
         }
@@ -33,23 +35,28 @@ module.exports.tweet = () => {
                     function tweeted(err, data, response) {
                         if (err) {
                             console.log("Something went wrong!", err);
+                            ofOldHatTweet();
                         }
                         else {
                             console.log("Voila It worked!");
                         }
                     }
+                } else {
+                    ofOldHatTweet();
                 }
 
             } else {
                 // doc.data() will be undefined in this case
                 console.log("No such document!");
+                ofOldHatTweet();
                 // res.json({ status: false })
             }
         }).catch(function (error) {
             console.log("Error getting document:", error);
+            ofOldHatTweet();
         });
     }
-    // ofOldHat();
-    setInterval(ofOldHat, 1000 * 1980);
+    // ofOldHatTweet();
+    setInterval(ofOldHatTweet, 1000 * 1980);
 }
 

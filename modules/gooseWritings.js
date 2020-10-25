@@ -11,8 +11,8 @@ module.exports.goose = () => {
     }
     let wikiDesc = ""
     let previousReplyId = "" 
-
-    axios.get(url)
+    tweetWritings = () => {
+        axios.get(url)
         .then(async function (response) {
             tweetedStatus = response.data.query.pages[Object.keys(response.data.query.pages)[0]].title.replace(/ *\([^)]*\) */g, "");
             wikiDesc = response.data.query.pages[Object.keys(response.data.query.pages)[0]].extract;
@@ -21,13 +21,17 @@ module.exports.goose = () => {
              function tweeted(err, firstData, response) {
                 if (err) {
                     console.log("Something went wrong!", err);
+                    tweetWritings();
                 }
                 else {
                     console.log("Voila It worked!");
                     previousReplyId = firstData.id_str;
                     let twoForty =  wikiDesc.match(/.{1,240}(\s|$)/g)
                     twoForty.push(`https://en.wikipedia.org/wiki/${encodeURIComponent(tweetedStatus.trim())}`)
-                    if(twoForty.length>10) return;
+                    if(twoForty.length>10) {
+                        tweetWritings();
+                        return;
+                    }
                     for (let i = 0, p = Promise.resolve(); i < twoForty.length; i++) {
                         p = p.then(_ => new Promise(resolve =>{
                             tweet.status = twoForty[i];
@@ -37,6 +41,7 @@ module.exports.goose = () => {
     
                             Twitter.post('statuses/update', tweet, (err, thridData, response) => {
                                 if (err) {
+                                    tweetWritings();
                                     console.log("Something went wrong!", err);
                                 } else {
                                     previousReplyId=""
@@ -53,6 +58,10 @@ module.exports.goose = () => {
         })
         .catch(function (error) {
             // handle error
+            tweetWritings();
             console.log(error);
         })
+    }
+    tweetWritings();
+  
 }

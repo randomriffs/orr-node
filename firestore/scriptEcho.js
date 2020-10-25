@@ -36,6 +36,7 @@ module.exports.tweet = () => {
                     Twitter.post('statuses/update', tweet, tweeted)
                     function tweeted(err, data, response) {
                         if (err) {
+                            tweetSaying();
                             console.log("Something went wrong!", err);
                         }
                         else {
@@ -47,10 +48,12 @@ module.exports.tweet = () => {
             } else {
                 // doc.data() will be undefined in this case
                 console.log("No such document!");
+                tweetSaying();
                 // res.json({ status: false })
             }
         }).catch(function (error) {
             console.log("Error getting document:", error);
+            tweetSaying();
         });
     }
     // tweetSaying();
