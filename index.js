@@ -20,6 +20,7 @@ app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname+'/build/index.html'));
     
 });
+
 // scriptEcho prod
 var scriptEcho = require('./firestore/scriptEcho')
 scriptEcho.tweet();
@@ -41,6 +42,16 @@ fuckWithWord.tweet();
 cron.schedule("*/15 * * * *", () => {
 fuckWithWord.tweet();
 });
+
+// typewriter news prod
+var typewriterNews = require('./modules/typewriterNews')
+typewriterNews.tweet();
+cron.schedule("*/5 * * * *", () => {
+typewriterNews.tweet();
+});
+
+// var figlet = require('./firestore/figletWord');
+// figlet.tweet()
 
 
 // // scrapDribb 
