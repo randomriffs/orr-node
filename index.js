@@ -46,7 +46,7 @@ fuckWithWord.tweet();
 // typewriter news prod
 var typewriterNews = require('./modules/typewriterNews')
 typewriterNews.tweet();
-cron.schedule("*/5 * * * *", () => {
+cron.schedule("*/15 * * * *", () => {
 typewriterNews.tweet();
 });
 
