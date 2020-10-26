@@ -34,7 +34,7 @@ class HomeComponent extends Component {
         message: '',
         blogsData: {},
         isReadMore: false,
-        component: 'typewriter' // render different component container
+        component: 'randomriffs' // render different component container
     }
     componentDidMount() {
         this.props.getBlogs()
@@ -94,6 +94,8 @@ class HomeComponent extends Component {
         <GooseWritings/>
         <div className='wave-vt'></div>
         {/* <TodoComponent/> */}
+        <TypewriterNews/>
+        <div className='wave-vt'></div>
         <Footer />
     </div>)
     }
