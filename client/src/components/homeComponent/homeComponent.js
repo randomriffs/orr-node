@@ -27,12 +27,14 @@ import GooseWritings from '../gooseWritings/gooseWritings';
 import FooterComponent from '../footer/footerComponent';
 import TodoComponent from '../todoComponent/todoComponent';
 import IntroComponent from '../introComponent/introComponent';
+import TypewriterNews from '../typewriterNewsComponent/typewriterNews';
 
 class HomeComponent extends Component {
     state = {
         message: '',
         blogsData: {},
         isReadMore: false,
+        component: 'typewriter' // render different component container
     }
     componentDidMount() {
         this.props.getBlogs()
@@ -60,43 +62,61 @@ class HomeComponent extends Component {
         console.log('blog', blog)
         this.props.deletePostDispatch({ id: blog._id })
     }
+    randomriffComponent = () => {
+        return (<div className="home-container">
+        {/* {
+            this.props.home.getBlogLoading ? <div className=' content-loader'>
+                <List animation={true} ></List>
+            </div>
+                : <BlogComponent blogs={this.props.home} fetchBlogDetail={(blog) => this.fetchBlogDetail(blog)} deletePost={(blog) => this.deletePost(blog)} isReadMoreFunc={this.isReadMore} isReadMore={this.state.isReadMore} />
+        } */}
+        <IntroComponent></IntroComponent>
+        <div className="grey-container">
+            <ScripEchoComponent />
+            <BookLogsComponent />
+            <OfOldHat />
+        </div>
+        <DribbComponent />
+        <SpotifyPlaylist />
+        <YoutubePlaylist />
+        <div className='wave-vt'></div>
+        <Reddit />
+        <OrangeEye />
+        <PurplePage />
+        <div className='wave-vt'></div>
+        <CamelPage />
+        <div className='wave-vt'></div>
+        <DiogoPage />
+        <div className='wave-vt'></div>
+        <ChineseFont />
+        <div className='wave-vt'></div>
+        {/* <BlackAComponent/> */}
+        <GooseWritings/>
+        <div className='wave-vt'></div>
+        {/* <TodoComponent/> */}
+        <Footer />
+    </div>)
+    }
+    typewriterNewsComponent = () => {
+        return (
+            <TypewriterNews></TypewriterNews>
+        )
+    }
+    renderComponent = () =>{
+        let component = this.state.component;
+        switch(component){
+            case 'randomriffs':
+                return this.randomriffComponent();
+            case 'typewriter':
+                return this.typewriterNewsComponent();
+        }
+    }
     render() {
         console.log('home reducer', this.props.home)
         return (
-            <div className="home-container">
-                {/* {
-                    this.props.home.getBlogLoading ? <div className=' content-loader'>
-                        <List animation={true} ></List>
-                    </div>
-                        : <BlogComponent blogs={this.props.home} fetchBlogDetail={(blog) => this.fetchBlogDetail(blog)} deletePost={(blog) => this.deletePost(blog)} isReadMoreFunc={this.isReadMore} isReadMore={this.state.isReadMore} />
-                } */}
-                <IntroComponent></IntroComponent>
-                <div className="grey-container">
-                    <ScripEchoComponent />
-                    <BookLogsComponent />
-                    <OfOldHat />
-                </div>
-                <DribbComponent />
-                <SpotifyPlaylist />
-                <YoutubePlaylist />
-                <div className='wave-vt'></div>
-                <Reddit />
-                <OrangeEye />
-                <PurplePage />
-                <div className='wave-vt'></div>
-                <CamelPage />
-                <div className='wave-vt'></div>
-                <DiogoPage />
-                <div className='wave-vt'></div>
-                <ChineseFont />
-                <div className='wave-vt'></div>
-                {/* <BlackAComponent/> */}
-                <GooseWritings/>
-                <div className='wave-vt'></div>
-                {/* <TodoComponent/> */}
-                <Footer />
-            </div>
-
+            <React.Fragment>
+                {this.renderComponent()}
+            </React.Fragment>
         )
     }
 

@@ -20,7 +20,7 @@ class App extends Component {
       <React.Fragment>
         
        <BrowserRouter>
-       <NavbarComponent/>
+       {/* <NavbarComponent/> */}
           <Switch>
             <Route exact path='/' component={HomeComponent}/>  
             <Route path='/login' component={LoginComponent}/>
