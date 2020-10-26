@@ -10,7 +10,7 @@ export default class TypewriterNews extends Component {
     }
     componentDidMount() {
         let articleResponse = null
-        fetch('https://newsapi.org/v2/everything?q=general&apiKey=fef31301d31b4f238d80f8670bcc4612&pageSize=100').then(response=>{
+        fetch('https://randomriffs.herokuapp.com/api/getArticle').then(response=>{
            articleResponse = response
            console.log('>>>>>>>>>>>>>>> reponse',response)
         })
