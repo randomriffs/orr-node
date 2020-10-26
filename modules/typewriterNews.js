@@ -5,8 +5,8 @@ module.exports.tweet = () => {
     const config = require('../config/typewriterNews');
     var TinyURL = require('tinyurl');
     const Twitter = new Twit(config);
-    let SourceUrl = "https://newsapi.org/v2/sources?apiKey=" + process.env.NEWAPI_KEY;
-    let newsUrl = "https://newsapi.org/v2/everything?apiKey=" + process.env.NEWAPI_KEY;
+    let SourceUrl = "https://newsapi.org/v2/sources?apiKey=" + process.env.NEWAPI_KEY_SOURCE;
+    let newsUrl = "https://newsapi.org/v2/everything?apiKey=" + process.env.NEWAPI_KEY_ARTICLE;
     let tweet = {
         status: '*******'
     }
@@ -50,7 +50,7 @@ module.exports.tweet = () => {
 
                 }).catch(err => {
                     console.log('error in article call')
-                    fetchNewsApi()
+                    // fetchNewsApi()
                 })
 
             })

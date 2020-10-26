@@ -6,6 +6,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 const path = require('path');
 var admin = require("firebase-admin");
+const axios = require('axios');
 
 let filmList = ['dunkirk', 'forrest-gump', 'moonlight', 'no-country-for-old-men', 'pulp-fiction', 'spotlight', 'blood-diamond'
     , 'django-unchained', 'fight-club', 'inglourious-basterds', 'reservoir-dogs', 'godfather'
@@ -24,7 +25,8 @@ var bookLogDb = bookLogModule.bookLogs.firestore()
 
 const User = require('../models/userSchema')
 const Blogs = require('../models/blogSchema');
-const Tasks = require('../models/taskSchema')
+const Tasks = require('../models/taskSchema');
+const { default: Axios } = require('axios');
 // app.use(express.static(path.join(__dirname, '../../build')));
 // app.use(express.static("build"));
 router.post('/api/login', (req, res) => {
@@ -275,6 +277,31 @@ router.get('/api/random/fyodor', (req, res) => {
     }).catch(function (error) {
         console.log("Error getting document:", error);
     });
+})
+router.get('/api/getArticle', (req, res) => {
+    let articleUrl = "https://newsapi.org/v2/everything?q=general&apiKey="+ process.env.NEWAPI_KEY + "&pageSize=100";
+    console.log('article url',articleUrl)
+    axios.get(articleUrl).then((articleResponse) => {
+        console.log(articleResponse);
+        const obj = articleResponse;
+        const anotherObj = articleResponse;
+        anotherObj.someRef = obj;
+        obj.someRef = anotherObj;
+        const list = new List();
+        list.addObj('some', obj);
+        console.log('list',list)
+        res.send({
+            data: articleResponse,
+            status: true
+        })
+    })
+    .catch(err => {
+        // console.log('error',err)
+        res.json({
+            error: err,
+            status: false
+        })
+    })
 })
 
 module.exports = router;
