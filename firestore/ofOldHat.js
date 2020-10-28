@@ -12,7 +12,7 @@ module.exports.tweet = () => {
             status: 'test'
         }
         let books = ['1984', 'catcher-in-the-rye', 'fahrenheit-451', 'grapes-of-wrath', 'of-mice-and-men', 'orlando',
-            'the-brother-karamazov', 'the-illiad', 'the-odyssey']
+            'the-brother-karamazov']
             // other book list []
         let bookLength = books.length;
         console.log('bookLength', bookLength)

@@ -12,7 +12,7 @@ module.exports.tweet = () => {
         }
         let previousReplyId = ""
         let books = ['1984', 'catcher-in-the-rye', 'fahrenheit-451', 'grapes-of-wrath', 'of-mice-and-men', 'orlando',
-            'the-brother-karamazov', 'the-illiad', 'the-odyssey']
+            'the-brother-karamazov']
         const getFuckWord = (verses) => {
             let versesSize = verses.length - 1;
             let randomVerses = Math.floor(Math.random() * versesSize);
