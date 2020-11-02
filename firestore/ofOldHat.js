@@ -57,6 +57,6 @@ module.exports.tweet = () => {
         });
     }
     ofOldHatTweet();
-    setInterval(ofOldHatTweet, 1000 * 1980);
+    // setInterval(ofOldHatTweet, 1000 * 1980);
 }
 

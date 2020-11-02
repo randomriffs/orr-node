@@ -21,13 +21,19 @@ app.get('/', function (req, res) {
     
 });
 
-// scriptEcho prod
+// // scriptEcho prod 0 * * * *
 var scriptEcho = require('./firestore/scriptEcho')
-scriptEcho.tweet();
+// scriptEcho.tweet();
+cron.schedule("10 * * * * ", () => {
+    scriptEcho.tweet();
+});
 
 // of Old Had prod
 var ofOldHat=require('./firestore/ofOldHat')
-ofOldHat.tweet();
+// ofOldHat.tweet();
+cron.schedule("20 * * * * ", () => {
+    ofOldHat.tweet();
+});
 
 // gooseWritings prod
 var gooseWritings = require('./modules/gooseWritings');
