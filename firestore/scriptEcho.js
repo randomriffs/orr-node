@@ -48,15 +48,15 @@ module.exports.tweet = () => {
             } else {
                 // doc.data() will be undefined in this case
                 console.log("No such document!");
-                tweetSaying();
+                // tweetSaying();
                 // res.json({ status: false })
             }
         }).catch(function (error) {
             console.log("Error getting document:", error);
-            tweetSaying();
+            // tweetSaying();
         });
     }
-    // tweetSaying();
+    tweetSaying();
     setInterval(tweetSaying, 1000 * 2220);
 }
 

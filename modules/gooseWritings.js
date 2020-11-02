@@ -58,7 +58,7 @@ module.exports.goose = () => {
         })
         .catch(function (error) {
             // handle error
-            tweetWritings();
+            // tweetWritings();
             console.log(error);
         })
     }

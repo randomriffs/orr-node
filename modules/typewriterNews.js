@@ -38,6 +38,7 @@ module.exports.tweet = () => {
                         function tweeted(err, firstData, response) {
                             if (err) {
                                 console.log("Something went wrong!", err);
+                                fetchNewsApi()
                             }
                             else {
                                 console.log('News tweeted')
@@ -45,7 +46,7 @@ module.exports.tweet = () => {
                         }
                     }, function (err) {
                         console.log(err)
-                        fetchNewsApi()
+                        
                     })
 
                 }).catch(err => {
@@ -57,7 +58,7 @@ module.exports.tweet = () => {
             .catch(function (error) {
                 // handle error
                 console.log(error);
-                fetchNewsApi()
+                // fetchNewsApi()
             })
     }
     fetchNewsApi();

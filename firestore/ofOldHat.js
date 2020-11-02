@@ -42,21 +42,21 @@ module.exports.tweet = () => {
                         }
                     }
                 } else {
-                    ofOldHatTweet();
+                    // ofOldHatTweet();
                 }
 
             } else {
                 // doc.data() will be undefined in this case
                 console.log("No such document!");
-                ofOldHatTweet();
+                // ofOldHatTweet();
                 // res.json({ status: false })
             }
         }).catch(function (error) {
             console.log("Error getting document:", error);
-            ofOldHatTweet();
+            // ofOldHatTweet();
         });
     }
-    // ofOldHatTweet();
+    ofOldHatTweet();
     setInterval(ofOldHatTweet, 1000 * 1980);
 }
 
