@@ -23,31 +23,31 @@ app.get('/', function (req, res) {
 
 // // scriptEcho prod 0 * * * *
 var scriptEcho = require('./firestore/scriptEcho')
-scriptEcho.tweet();
+// scriptEcho.tweet();
 cron.schedule("10 * * * * ", () => {
     scriptEcho.tweet();
 });
 
 // of Old Had prod
 var ofOldHat=require('./firestore/ofOldHat')
-ofOldHat.tweet();
+// ofOldHat.tweet();
 cron.schedule("20 * * * * ", () => {
     ofOldHat.tweet();
 });
 
 // gooseWritings prod
 var gooseWritings = require('./modules/gooseWritings');
-gooseWritings.goose();
+// gooseWritings.goose();
 cron.schedule("0 */6 * * *", () => {
 gooseWritings.goose();
 });
 
-// // fuckWithWord prod
-// var fuckWithWord = require('./firestore/fuckWithWord')
-// // fuckWithWord.tweet();
-// cron.schedule("*/29 * * * *", () => {
-// fuckWithWord.tweet();
-// });
+// fuckWithWord prod
+var fuckWithWord = require('./firestore/fuckWithWord')
+fuckWithWord.tweet();
+cron.schedule("30 * * * *", () => {
+fuckWithWord.tweet();
+});
 
 // typewriter news prod
 var typewriterNews = require('./modules/typewriterNews')
