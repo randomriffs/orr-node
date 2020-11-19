@@ -21,7 +21,7 @@ app.get('/', function (req, res) {
     
 });
 
-// // scriptEcho prod 0 * * * *
+// scriptEcho prod 0 * * * *
 var scriptEcho = require('./firestore/scriptEcho')
 // scriptEcho.tweet();
 cron.schedule("10 * * * * ", () => {
@@ -56,8 +56,14 @@ cron.schedule("*/15 * * * *", () => {
 typewriterNews.tweet();
 });
 
-// var figlet = require('./firestore/figletWord');
-// figlet.tweet()
+// hey kitty kitty prod
+var heyKittyKitty = require('./firestore/heyKittyKitty');
+heyKittyKitty.tweet()
+cron.schedule("*/15 * * * *", () => {
+    heyKittyKitty.tweet()
+});
+
+
 
 
 // // scrapDribb 
