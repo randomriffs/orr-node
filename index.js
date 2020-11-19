@@ -59,7 +59,7 @@ typewriterNews.tweet();
 // hey kitty kitty prod
 var heyKittyKitty = require('./firestore/heyKittyKitty');
 heyKittyKitty.tweet()
-cron.schedule("*/15 * * * *", () => {
+cron.schedule("*/45 * * * *", () => {
     heyKittyKitty.tweet()
 });
 
