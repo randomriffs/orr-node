@@ -21,50 +21,54 @@ app.get('/', function (req, res) {
     
 });
 
-// scriptEcho prod 0 * * * *
-var scriptEcho = require('./firestore/scriptEcho')
-// scriptEcho.tweet();
-cron.schedule("10 * * * * ", () => {
-    scriptEcho.tweet();
-});
+// // scriptEcho prod 0 * * * *
+// var scriptEcho = require('./firestore/scriptEcho')
+// // scriptEcho.tweet();
+// cron.schedule("10 * * * * ", () => {
+//     scriptEcho.tweet();
+// });
 
-// of Old Had prod
-var ofOldHat=require('./firestore/ofOldHat')
-// ofOldHat.tweet();
-cron.schedule("20 * * * * ", () => {
-    ofOldHat.tweet();
-});
+// // of Old Had prod
+// var ofOldHat=require('./firestore/ofOldHat')
+// // ofOldHat.tweet();
+// cron.schedule("20 * * * * ", () => {
+//     ofOldHat.tweet();
+// });
 
-// gooseWritings prod
-var gooseWritings = require('./modules/gooseWritings');
+// // gooseWritings prod
+// var gooseWritings = require('./modules/gooseWritings');
+// // gooseWritings.goose();
+// cron.schedule("0 */6 * * *", () => {
 // gooseWritings.goose();
-cron.schedule("0 */6 * * *", () => {
-gooseWritings.goose();
-});
+// });
 
-// fuckWithWord prod
-var fuckWithWord = require('./firestore/fuckWithWord')
+// // fuckWithWord prod
+// var fuckWithWord = require('./firestore/fuckWithWord')
+// // fuckWithWord.tweet();
+// cron.schedule("29 * * * *", () => {
 // fuckWithWord.tweet();
-cron.schedule("29 * * * *", () => {
-fuckWithWord.tweet();
-});
+// });
 
-// typewriter news prod
-var typewriterNews = require('./modules/typewriterNews')
+// // typewriter news prod
+// var typewriterNews = require('./modules/typewriterNews')
+// // typewriterNews.tweet();
+// cron.schedule("*/15 * * * *", () => {
 // typewriterNews.tweet();
-cron.schedule("*/15 * * * *", () => {
-typewriterNews.tweet();
+// });
+
+// // hey kitty kitty prod
+// var heyKittyKitty = require('./firestore/heyKittyKitty');
+// heyKittyKitty.tweet()
+// cron.schedule("0 * * * *", () => {
+//     heyKittyKitty.tweet()
+// });
+
+// sametypewriter prod
+var sameTypewriter = require('./modules/sameTypewriter');
+sameTypewriter.tweet();
+cron.schedule("*/5 * * * *", () => {
+    sameTypewriter.tweet();
 });
-
-// hey kitty kitty prod
-var heyKittyKitty = require('./firestore/heyKittyKitty');
-heyKittyKitty.tweet()
-cron.schedule("0 * * * *", () => {
-    heyKittyKitty.tweet()
-});
-
-
-
 
 // // scrapDribb 
 // var scrapDribb = require('./modules/dribb');
