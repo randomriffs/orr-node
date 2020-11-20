@@ -74,6 +74,7 @@ module.exports.tweet = () => {
                     }
     
                 }).catch(err => {
+                    tweetCat()
                     console.log(err)
                 });
         });
