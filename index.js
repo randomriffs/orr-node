@@ -63,9 +63,9 @@ cron.schedule("0 * * * *", () => {
     heyKittyKitty.tweet()
 });
 
-// sametypewriter prod
+// sametypewriter prod 
 var sameTypewriter = require('./modules/sameTypewriter');
-sameTypewriter.tweet();
+// sameTypewriter.tweet();
 cron.schedule("0 */12 * * *", () => {
     sameTypewriter.tweet();
 });
