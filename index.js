@@ -74,10 +74,15 @@ cron.schedule("0 */12 * * *", () => {
 // usSlashUi prod
 var uxSlashUi = require('./modules/uxSlashUi');
 uxSlashUi.tweet();
-cron.schedule("*/15 * * * *", () => {
+cron.schedule("*/5 * * * *", () => {
     uxSlashUi.tweet();
 });
 }
+// var uxSlashUi = require('./modules/uxSlashUi');
+// uxSlashUi.tweet();
+// cron.schedule("*/5 * * * *", () => {
+//     uxSlashUi.tweet();
+// });
 
 
 // // scrapDribb 

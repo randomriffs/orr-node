@@ -13,14 +13,15 @@ module.exports.tweet = () => {
 
     tweetUxSlashUi = () =>{
         fs.readdir(directory, (err, files) => {
-            if (err) throw err;
-            // removing file
-            for (const file of files) {
-                fs.unlink(path.join(directory, file), err => {
-                    if (err) throw err;
-                    console.log('file removed')
-                });
-            }
+                if (err) throw err;
+                // removing file 
+                for (const file of files) {
+                    fs.unlink(path.join(directory, file), err => {
+                        if (err) throw err;
+                        console.log('file removed')
+                    });
+                }
+            
             // removed file
             axios.get(webpageUrl)
                 .then(function (response) {
@@ -60,8 +61,8 @@ module.exports.tweet = () => {
                         tweetShot()
                     })();
                 }).catch(err => {
-                    tweetUxSlashUi()
-                    console.log(err)
+                    // tweetUxSlashUi()
+                    console.log('axios error',err)
                 });
         });
     }
