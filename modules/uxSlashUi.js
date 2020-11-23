@@ -63,12 +63,9 @@ module.exports.tweet = () => {
                     // })();
                     (async () => {
                         const browser = await puppeteer.launch({
-                            headless: true,
                             args: [
                                 '--no-sandbox',
-                                '--disable-setuid-sandbox',
-                                '--disable-dev-shm-usage',
-                                '--single-process'
+                                '--disable-setuid-sandbox'
                             ],
                         });
                         const page = await browser.newPage();
