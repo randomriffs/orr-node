@@ -17,7 +17,7 @@ let filmList = ['dunkirk', 'forrest-gump', 'moonlight', 'no-country-for-old-men'
 let books = ['1984', 'catcher-in-the-rye', 'fahrenheit-451', 'grapes-of-wrath', 'of-mice-and-men', 'orlando',
     'the-brother-karamazov', 'the-illiad', 'the-odyssey']
 
-let webpageCollections = ['nominees', 'honorable']
+let webpageCollections = ['nominees', 'honorable', 'site-of-the-day']
 
 var scriptModule = require('../firestore/db')
 var db = scriptModule.script.firestore();
@@ -286,6 +286,8 @@ getWebpageDocument = (collection) =>{
         case 'nominees':
         case 'honorable':
             return Math.floor(Math.random() * 312);
+        case 'site-of-the-day':
+            return Math.floor(Math.random() * 130);
         default:
             return 1;
     }

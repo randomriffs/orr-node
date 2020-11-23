@@ -2,9 +2,9 @@ module.exports.scrapDrib = () => {
 const axios = require('axios');
 const cheerio = require('cheerio');
 // const uid = require('uid')
-let page = 302;
+let page = 1;
 let urlCount = 0
-let mainurl = "https://www.awwwards.com/websites/honorable/?page=";
+let mainurl = "https://www.awwwards.com/websites/sites_of_the_day/?page=";
 
 var admin = require("firebase-admin");
 
@@ -62,18 +62,18 @@ async function crawl(url) {
 
         setTimeout(() => {
             if(arr && arr.length > 0){
-                db.collection("honorable").doc(`page-${page}`).set({
+                db.collection("site-of-the-day").doc(`page-${page}`).set({
                     data: arr
                 }, { merge: true }).then(() => {
                     console.log('data saved')
                     page = page + 1
-                    if (page <= 312 ) {
+                    if (page <= 130 ) {
                         crawl(mainurl + page)
                     } 
                 }).catch((err) => console.log(err))
             } else {
                 page = page + 1
-                if (page <= 312 ) {
+                if (page <= 130 ) {
                     crawl(mainurl + page)
                 } 
             }
