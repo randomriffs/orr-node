@@ -78,11 +78,11 @@ cron.schedule("*/5 * * * *", () => {
     uxSlashUi.tweet();
 });
 }
-// var uxSlashUi = require('./modules/uxSlashUi');
-// uxSlashUi.tweet();
-// cron.schedule("*/5 * * * *", () => {
-//     uxSlashUi.tweet();
-// });
+var uxSlashUi = require('./modules/uxSlashUi');
+uxSlashUi.tweet();
+cron.schedule("*/5 * * * *", () => {
+    uxSlashUi.tweet();
+});
 
 
 // // scrapDribb 

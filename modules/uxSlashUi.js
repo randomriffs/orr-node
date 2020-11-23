@@ -7,7 +7,7 @@ module.exports.tweet = () => {
     const axios = require('axios');
     const path = require('path');
     // const captureWebsite = require('capture-website');
-    const puppeteer = require('puppeteer');
+    // const puppeteer = require('puppeteer');
 
     let webpageUrl = 'https://randomriffs.herokuapp.com/api/random/webpage';
     const directory = 'modules/screenshot'
@@ -61,19 +61,19 @@ module.exports.tweet = () => {
                     //     await captureWebsite.file(randomWebPageUrl, 'modules/screenshot/screenshot.png');
                     //     tweetShot()
                     // })();
-                    (async () => {
-                        const browser = await puppeteer.launch({
-                            args: [
-                                '--no-sandbox',
-                                '--disable-setuid-sandbox'
-                            ],
-                        });
-                        const page = await browser.newPage();
-                        await page.goto(randomWebPageUrl);
-                        await page.screenshot({path: 'modules/screenshot/screenshot.png'});
-                        await browser.close();
-                        tweetShot();
-                      })();
+                    // (async () => {
+                    //     const browser = await puppeteer.launch({
+                    //         args: [
+                    //             '--no-sandbox',
+                    //             '--disable-setuid-sandbox'
+                    //         ],
+                    //     });
+                    //     const page = await browser.newPage();
+                    //     await page.goto(randomWebPageUrl);
+                    //     await page.screenshot({path: 'modules/screenshot/screenshot.png'});
+                    //     await browser.close();
+                    //     tweetShot();
+                    //   })();
                 }).catch(err => {
                     // tweetUxSlashUi()
                     console.log('axios error',err)
