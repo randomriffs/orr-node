@@ -33,7 +33,7 @@ module.exports.tweet = () => {
                     let randomWebPageUrl = randomWebPageData.siteUrl;
                     const tweetShot = () => {
                                 setTimeout(()=>{
-                                    const imageData = fs.readFileSync("modules/screenshot/shot.png") //replace with the path to your image
+                                    const imageData = fs.readFileSync("modules/screenshot/screenshot.png") //replace with the path to your image
                                     client.post("media/upload", { media: imageData }, function (error, media, response) {
                                         if (error) {
                                             console.log(error)
@@ -57,7 +57,7 @@ module.exports.tweet = () => {
                     }
 
                     (async () => {
-                        await captureWebsite.file(randomWebPageUrl, 'modules/screenshot/shot.png');
+                        await captureWebsite.file(randomWebPageUrl, 'modules/screenshot/screenshot.png');
                         tweetShot()
                     })();
                 }).catch(err => {
