@@ -32,13 +32,17 @@ module.exports.tweet = () => {
                     let randomWebPageData = webPageData[randomWebPageIndex]
                     console.log('webpagedata',randomWebPageData)
                     let randomWebPageUrl = randomWebPageData.siteUrl;
-                    const tweetShot = () => {
+                    const options = {
+                        url: randomWebPageData && randomWebPageData.imageUrl && randomWebPageData.imageUrl.length > 0 && randomWebPageData.imageUrl[1],
+                        dest: 'modules/screenshot/screenshot.png'                // will be saved to /path/to/dest/image.jpg
+                    }
+                    download.image(options)
+                            .then(({ filename }) => {
                                 setTimeout(()=>{
                                     const imageData = fs.readFileSync("modules/screenshot/screenshot.png") //replace with the path to your image
                                     client.post("media/upload", { media: imageData }, function (error, media, response) {
                                         if (error) {
                                             console.log(error)
-                                            tweetUxSlashUi();
                                         } else {
                                             const status = {
                                                 status: randomWebPageUrl,
@@ -55,27 +59,8 @@ module.exports.tweet = () => {
                                         }
                                     })
                                 },5000)
-                    }
-
-                    // (async () => {
-                    //     await captureWebsite.file(randomWebPageUrl, 'modules/screenshot/screenshot.png');
-                    //     tweetShot()
-                    // })();
-                    // (async () => {
-                    //     const browser = await puppeteer.launch({
-                    //         args: [
-                    //             '--no-sandbox',
-                    //             '--disable-setuid-sandbox'
-                    //         ],
-                    //     });
-                    //     const page = await browser.newPage();
-                    //     await page.goto(randomWebPageUrl);
-                    //     await page.screenshot({path: 'modules/screenshot/screenshot.png'});
-                    //     await browser.close();
-                    //     tweetShot();
-                    //   })();
+                            })
                 }).catch(err => {
-                    // tweetUxSlashUi()
                     console.log('axios error',err)
                 });
         });
