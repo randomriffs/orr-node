@@ -1,0 +1,47 @@
+iframe {
+    display: block;       /* iframes are inline by default */
+    /* background: #000; */
+    border: none;         /* Reset default border */
+    height: 100vh;        /* Viewport-relative units */
+    width: 100vw;
+}
+header {
+    text-align: center;
+    position: absolute;
+    z-index: 30; 
+    right: 30px;
+    bottom:30px;
+    font-size: 4em;
+}
+header img {
+    width: 2em;
+    cursor: pointer;
+    background-color: red;
+}
+.mask {
+    position: absolute;
+    z-index: 19;
+    font-size: 4em;
+    text-align: center;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    top: 0;
+    background-color: black;
+    color: red;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+@media only screen 
+and (max-device-width: 700px)
+and (-webkit-min-device-pixel-ratio: 2) {
+    header img {
+        width: 100px;
+        height: 60px;
+    }
+}

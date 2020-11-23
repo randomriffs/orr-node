@@ -11,7 +11,7 @@ var router = express.Router();
 var router= require('./router/index');
 app.use('/', router);
 var cron = require('node-cron');
-require('dotenv').config()
+require('dotenv').config();
 
 // app.use(express.static("build"));
 app.use(express.static(path.join(__dirname, 'client/build')));
@@ -70,8 +70,14 @@ var sameTypewriter = require('./modules/sameTypewriter');
 cron.schedule("0 */12 * * *", () => {
     sameTypewriter.tweet();
 });
-}
 
+// usSlashUi prod
+var uxSlashUi = require('./modules/uxSlashUi');
+uxSlashUi.tweet();
+cron.schedule("*/15 * * * *", () => {
+    uxSlashUi.tweet();
+});
+}
 
 
 // // scrapDribb 

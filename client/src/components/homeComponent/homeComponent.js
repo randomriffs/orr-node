@@ -28,6 +28,7 @@ import FooterComponent from '../footer/footerComponent';
 import TodoComponent from '../todoComponent/todoComponent';
 import IntroComponent from '../introComponent/introComponent';
 import TypewriterNews from '../typewriterNewsComponent/typewriterNews';
+import RandomWebPage from '../randomWebPage/randomWebPage';
 
 class HomeComponent extends Component {
     state = {
@@ -96,7 +97,8 @@ class HomeComponent extends Component {
         {/* <TodoComponent/> */}
         <TypewriterNews/>
         <div className='wave-vt'></div>
-        <Footer />
+        <RandomWebPage/>
+        {/* <Footer /> */}
     </div>)
     }
     typewriterNewsComponent = () => {

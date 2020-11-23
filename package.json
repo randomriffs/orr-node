@@ -15,6 +15,7 @@
     "base64-img": "^1.0.4",
     "body-parser": "^1.19.0",
     "bufferlist": "^0.1.0",
+    "capture-website": "^1.2.5",
     "cheerio": "^1.0.0-rc.3",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",

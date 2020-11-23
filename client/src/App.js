@@ -10,6 +10,7 @@ import BlogDetailsComponent from './components/blogDetailsComponent/blogDetailsC
 import BlogEditForm from './components/blogEditForm/blogEditForm';
 import AllPostComponent from './components/allPostComponent/allPostComponent';
 import GooseWritings from './components/gooseWritings/gooseWritings';
+import RandomrWebPage from './components/randomWebPage/randomWebPage';
 
 class App extends Component {
   // componentDidMount(){
