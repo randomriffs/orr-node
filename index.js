@@ -70,16 +70,15 @@ var sameTypewriter = require('./modules/sameTypewriter');
 cron.schedule("0 */12 * * *", () => {
     sameTypewriter.tweet();
 });
-
-// usSlashUi prod
-var uxSlashUi = require('./modules/uxSlashUi');
-uxSlashUi.tweet();
-cron.schedule("*/5 * * * *", () => {
-    uxSlashUi.tweet();
-});
 }
 
 
+// // usSlashUi
+// var uxSlashUi = require('./modules/uxSlashUi');
+// uxSlashUi.tweet();
+// cron.schedule("*/5 * * * *", () => {
+//     uxSlashUi.tweet();
+// });
 
 // // scrapDribb 
 // var scrapDribb = require('./modules/dribb');
