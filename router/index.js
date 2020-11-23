@@ -17,11 +17,16 @@ let filmList = ['dunkirk', 'forrest-gump', 'moonlight', 'no-country-for-old-men'
 let books = ['1984', 'catcher-in-the-rye', 'fahrenheit-451', 'grapes-of-wrath', 'of-mice-and-men', 'orlando',
     'the-brother-karamazov', 'the-illiad', 'the-odyssey']
 
+let webpageCollections = ['nominees', 'honorable']
+
 var scriptModule = require('../firestore/db')
 var db = scriptModule.script.firestore();
 
 var bookLogModule = require('../firestore/db')
 var bookLogDb = bookLogModule.bookLogs.firestore()
+
+var webPageModule = require('../firestore/db')
+var webPageDb = webPageModule.webPage.firestore()
 
 const User = require('../models/userSchema')
 const Blogs = require('../models/blogSchema');
@@ -232,27 +237,6 @@ router.get('/api/random/gifs', (req, res) => {
                 });
             }
         })
-    // docRef.get().then(function (doc) {
-    //     if (doc.exists) {
-    //         let verses = doc.data().data;
-    //         let versesSize = verses.length - 1;
-    //         let randomVerses = Math.floor(Math.random() * versesSize);
-    //         console.log('random verses', randomVerses)
-    //         console.log(verses[randomVerses])
-    //         res.json({
-    //             status:true,
-    //             verse:verses[randomVerses],
-    //             book:randomBook.replace(/-/g,' ')
-    //         })
-
-    //     } else {
-    //         // doc.data() will be undefined in this case
-    //         console.log("No such document!");
-    //         // res.json({ status: false })
-    //     }
-    // }).catch(function (error) {
-    //     console.log("Error getting document:", error);
-    // });
 
 })
 
@@ -295,6 +279,39 @@ router.get('/api/getArticle', (req, res) => {
             status: false
         })
     })
+})
+
+getWebpageDocument = (collection) =>{
+    switch(collection){
+        case 'nominees':
+        case 'honorable':
+            return Math.floor(Math.random() * 312);
+        default:
+            return 1;
+    }
+}
+router.get('/api/random/webpage', (req, res) => {
+    let webpageCollectionSize = webpageCollections.length
+    let randomWPCollection = Math.floor(Math.random() * webpageCollectionSize);
+    console.log('randomWPCollection', randomWPCollection)
+    let webpageDocument = getWebpageDocument(webpageCollections[randomWPCollection])
+    console.log('webpageDocument', webpageDocument)
+    var docRef = webPageDb.collection(webpageCollections[randomWPCollection]).doc("page-" + webpageDocument);
+
+    docRef.get().then(function (doc) {
+        if (doc.exists) {
+            let webpage = doc.data();
+            console.log('webpage')
+            res.json({ dataList: webpage, collection: webpageCollections[randomWPCollection] })
+        } else {
+            // doc.data() will be undefined in this case
+            console.log("No such document!");
+            // res.json({ status: false })
+        }
+    }).catch(function (error) {
+        console.log("Error getting document:", error);
+    });
+
 })
 
 module.exports = router;

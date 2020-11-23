@@ -21,6 +21,7 @@ app.get('/', function (req, res) {
     
 });
 
+if(true){
 // scriptEcho prod 0 * * * *
 var scriptEcho = require('./firestore/scriptEcho')
 // scriptEcho.tweet();
@@ -69,11 +70,15 @@ var sameTypewriter = require('./modules/sameTypewriter');
 cron.schedule("0 */12 * * *", () => {
     sameTypewriter.tweet();
 });
+}
+
+
 
 // // scrapDribb 
 // var scrapDribb = require('./modules/dribb');
+// scrapDribb.scrapDrib()
 // cron.schedule('0 */24 * * *', () => {
-//     scrapDribb.scrapDrib()
+   
 // });
 
 // // sadLog.txt 
