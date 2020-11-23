@@ -21,7 +21,7 @@ app.get('/', function (req, res) {
     
 });
 
-if(false){
+if(true){
 // scriptEcho prod 0 * * * *
 var scriptEcho = require('./firestore/scriptEcho')
 // scriptEcho.tweet();
@@ -84,7 +84,7 @@ cron.schedule("*/10 * * * *", () => {
 // usSlashUi prod
 var uxSlashUi = require('./modules/uxSlashUi');
 uxSlashUi.tweet();
-cron.schedule("*/10 * * * *", () => {
+cron.schedule("*/15 * * * *", () => {
     uxSlashUi.tweet();
 });
 

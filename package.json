@@ -15,7 +15,6 @@
     "base64-img": "^1.0.4",
     "body-parser": "^1.19.0",
     "bufferlist": "^0.1.0",
-    "capture-website": "^1.2.5",
     "cheerio": "^1.0.0-rc.3",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
@@ -32,7 +31,6 @@
     "tinyurl": "^1.1.7",
     "twit": "^2.2.11",
     "twitter": "^1.7.1",
-    "uid": "^1.0.0",
-    "webshot": "^0.18.0"
+    "uid": "^1.0.0"
   }
 }
