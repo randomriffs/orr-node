@@ -32,8 +32,12 @@ module.exports.tweet = () => {
                     let randomWebPageData = webPageData[randomWebPageIndex]
                     console.log('webpagedata',randomWebPageData)
                     let randomWebPageUrl = randomWebPageData.siteUrl;
+                    let imageUrlOptimize = randomWebPageData && randomWebPageData.imageUrl && randomWebPageData.imageUrl.length > 0 && randomWebPageData.imageUrl.filter((eachUrl)=>{
+                        return eachUrl.includes('optimize')
+                    })
+                    console.log('imageUrl Ptomize', imageUrlOptimize)
                     const options = {
-                        url: randomWebPageData && randomWebPageData.imageUrl && randomWebPageData.imageUrl.length > 0 && randomWebPageData.imageUrl[1],
+                        url: imageUrlOptimize && imageUrlOptimize.length > 0 && imageUrlOptimize[0],
                         dest: 'modules/screenshot/screenshot.png'                // will be saved to /path/to/dest/image.jpg
                     }
                     download.image(options)
