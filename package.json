@@ -11,7 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "ascii-art-table": "^1.0.1",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "base64-img": "^1.0.4",
     "body-parser": "^1.19.0",
     "bufferlist": "^0.1.0",
