@@ -29,6 +29,7 @@ import TodoComponent from '../todoComponent/todoComponent';
 import IntroComponent from '../introComponent/introComponent';
 import TypewriterNews from '../typewriterNewsComponent/typewriterNews';
 import RandomWebPage from '../randomWebPage/randomWebPage';
+import ExplocQR from '../../asset/explocqr.png'
 
 class HomeComponent extends Component {
     state = {
@@ -97,6 +98,13 @@ class HomeComponent extends Component {
         {/* <TodoComponent/> */}
         <TypewriterNews/>
         <div className='wave-vt'></div>
+        {/* Explore local */}
+        <div style={{width:'100%', display:'flex', justifyContent:'center'}}>
+            <h1> Изучите местные</h1>
+        <img src={ExplocQR}></img>
+        </div>
+        <div className='wave-vt'></div>
+        {/*  Random web page*/}
         <RandomWebPage/>
         {/* <Footer /> */}
     </div>)

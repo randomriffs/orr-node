@@ -25,7 +25,7 @@ if(true){
 // scriptEcho prod 0 * * * *
 var scriptEcho = require('./firestore/scriptEcho')
 // scriptEcho.tweet();
-cron.schedule("10 * * * * ", () => {
+cron.schedule("20 * * * * ", () => {
     scriptEcho.tweet();
 });
 
@@ -71,11 +71,11 @@ cron.schedule("0 */12 * * *", () => {
     sameTypewriter.tweet();
 });
 
-// usSlashUi prod
-var uxSlashUi = require('./modules/uxSlashUi');
-cron.schedule("*/15 * * * *", () => {
-    uxSlashUi.tweet();
-});
+// // usSlashUi prod
+// var uxSlashUi = require('./modules/uxSlashUi');
+// cron.schedule("*/15 * * * *", () => {
+//     uxSlashUi.tweet();
+// });
 }
 
 
