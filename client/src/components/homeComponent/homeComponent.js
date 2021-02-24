@@ -1,9 +1,14 @@
+// React stuffs
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
+
+// Actions
 import loginAction from '../../store/actions/loginAction';
 import * as homeActions from '../../store/actions/homeAction'
 import * as postActions from '../../store/actions/postActions'
+
+// Components
 import { BlogComponent } from "../blogComponent/blogComponent";
 import TaskComponent from "../taskComponent/taskComponent";
 import ScripEchoComponent from '../miscellaneousComponent/scriptEcho/scriptEchoComponent';
@@ -19,9 +24,6 @@ import PurplePage from '../purplePage/purplePage';
 import CamelPage from '../camelPage/camelPage';
 import DiogoPage from '../diogoPage/diogoPage';
 import ChineseFont from '../chineseFont/chineseFont';
-import ContentLoader, { List } from 'react-content-loader'
-
-import './homeComponent.css'
 import { BlackAComponent } from '../blackAComponent/blackAComponent';
 import GooseWritings from '../gooseWritings/gooseWritings';
 import FooterComponent from '../footer/footerComponent';
@@ -29,7 +31,14 @@ import TodoComponent from '../todoComponent/todoComponent';
 import IntroComponent from '../introComponent/introComponent';
 import TypewriterNews from '../typewriterNewsComponent/typewriterNews';
 import RandomWebPage from '../randomWebPage/randomWebPage';
-import ExplocQR from '../../asset/explocqr.png'
+import SpinningHead from '../spinninghead/spinningHead';
+// Assets;
+import ExplocQR from '../../asset/explocqr.png';
+import Fakeleghorse from '../../asset/flhbgremoved.png';
+
+// Stylings;
+
+import './homeComponent.css'
 
 class HomeComponent extends Component {
     state = {
@@ -66,65 +75,71 @@ class HomeComponent extends Component {
     }
     randomriffComponent = () => {
         return (<div className="home-container">
-        {/* {
+            {/* {
             this.props.home.getBlogLoading ? <div className=' content-loader'>
                 <List animation={true} ></List>
             </div>
                 : <BlogComponent blogs={this.props.home} fetchBlogDetail={(blog) => this.fetchBlogDetail(blog)} deletePost={(blog) => this.deletePost(blog)} isReadMoreFunc={this.isReadMore} isReadMore={this.state.isReadMore} />
         } */}
-        <IntroComponent></IntroComponent>
-        <div className="grey-container">
-            <ScripEchoComponent />
-            <BookLogsComponent />
-            <OfOldHat />
-        </div>
-        <DribbComponent />
-        <SpotifyPlaylist />
-        <YoutubePlaylist />
-        <div className='wave-vt'></div>
-        <Reddit />
-        <OrangeEye />
-        <PurplePage />
-        <div className='wave-vt'></div>
-        <CamelPage />
-        <div className='wave-vt'></div>
-        <DiogoPage />
-        <div className='wave-vt'></div>
-        <ChineseFont />
-        <div className='wave-vt'></div>
-        {/* <BlackAComponent/> */}
-        <GooseWritings/>
-        <div className='wave-vt'></div>
-        {/* <TodoComponent/> */}
-        <TypewriterNews/>
-        <div className='wave-vt'></div>
-        {/* Explore local */}
-        <div style={{width:'100%', display:'flex', justifyContent:'center'}}>
-            <h1> Изучите местные</h1>
-        <img src={ExplocQR}></img>
-        </div>
-        <div className='wave-vt'></div>
-        {/*  Random web page*/}
-        <RandomWebPage/>
-        {/* <Footer /> */}
-    </div>)
+            <IntroComponent></IntroComponent>
+            <div className="grey-container">
+                <ScripEchoComponent />
+                <BookLogsComponent />
+                <OfOldHat />
+            </div>
+            <DribbComponent />
+            <SpotifyPlaylist />
+            <YoutubePlaylist />
+            <div className='wave-vt'></div>
+            <Reddit />
+            <OrangeEye />
+            <PurplePage />
+            <div className='wave-vt'></div>
+            <CamelPage />
+            <div className='wave-vt'></div>
+            <DiogoPage />
+            <div className='wave-vt'></div>
+            <ChineseFont />
+            <div className='wave-vt'></div>
+            {/* <BlackAComponent/> */}
+            <GooseWritings />
+            <div className='wave-vt'></div>
+            {/* <TodoComponent/> */}
+            <TypewriterNews />
+            <div className='wave-vt'></div>
+            {/* Explore local */}
+            <div style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
+                <h1>изучить местный</h1>
+                <img src={ExplocQR}></img>
+            </div>
+            <div className='wave-vt'></div>
+            {/* Spinning head */}
+            <SpinningHead />
+            <div className='wave-vt'></div>
+
+
+            {/*  Random web page*/}
+            <RandomWebPage />
+            {/* <Footer /> */}
+            <img src={Fakeleghorse} className="App-logo" alt="logo" />
+        </div>)
     }
-    typewriterNewsComponent = () => {
+    CurrentComponentDev = () => {
         return (
-            <TypewriterNews></TypewriterNews>
+            <SpinningHead />
         )
     }
-    renderComponent = () =>{
+
+    renderComponent = () => {
         let component = this.state.component;
-        switch(component){
+        switch (component) {
             case 'randomriffs':
                 return this.randomriffComponent();
-            case 'typewriter':
-                return this.typewriterNewsComponent();
+            case 'currentComponentDev':
+                return this.CurrentComponentDev();
         }
     }
     render() {
-        console.log('home reducer', this.props.home)
         return (
             <React.Fragment>
                 {this.renderComponent()}

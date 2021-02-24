@@ -1,0 +1,134 @@
+.rowdata{
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 4em;
+    
+}
+.rowdata > img {
+    margin: 15px;
+}
+.spinning-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.spinningHead-1 {
+    height: 40vmin;
+    pointer-events: none;
+  }
+  
+  @media (prefers-reduced-motion: no-preference) {
+    .spinningHead-1 {
+      animation: spinningHead-spin-1 infinite 20s linear;
+    }
+  }
+
+  @keyframes spinningHead-spin-1 {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .spinningHead-2 {
+    height: 40vmin;
+    pointer-events: none;
+  }
+  
+  @media (prefers-reduced-motion: no-preference) {
+    .spinningHead-2 {
+      animation: spinningHead-spin-2 infinite 20s linear;
+    }
+  }
+
+  @keyframes spinningHead-spin-2 {
+    from {
+      transform: rotate(60deg);
+    }
+    to {
+      transform: rotate(-300deg);
+    }
+  }
+
+  .spinningHead-3 {
+    height: 40vmin;
+    pointer-events: none;
+  }
+  
+  @media (prefers-reduced-motion: no-preference) {
+    .spinningHead-3 {
+      animation: spinningHead-spin-3 infinite 20s linear;
+    }
+  }
+
+  @keyframes spinningHead-spin-3 {
+    from {
+      transform: rotate(-120deg);
+    }
+    to {
+      transform: rotate(240deg);
+    }
+  }
+
+  .spinningHead-4 {
+    height: 40vmin;
+    pointer-events: none;
+  }
+  
+  @media (prefers-reduced-motion: no-preference) {
+    .spinningHead-4 {
+      animation: spinningHead-spin-4 infinite 20s linear;
+    }
+  }
+
+  @keyframes spinningHead-spin-4 {
+    from {
+      transform: rotate(180deg);
+    }
+    to {
+      transform: rotate(-180deg);
+    }
+  }
+
+  .spinningHead-5 {
+    height: 40vmin;
+    pointer-events: none;
+  }
+  
+  @media (prefers-reduced-motion: no-preference) {
+    .spinningHead-5 {
+      animation: spinningHead-spin-5 infinite 20s linear;
+    }
+  }
+
+  @keyframes spinningHead-spin-5 {
+    from {
+      transform: rotate(-240deg);
+    }
+    to {
+      transform: rotate(120deg);
+    }
+  }
+  
+
+  .spinningHead-6 {
+    height: 40vmin;
+    pointer-events: none;
+  }
+  
+  @media (prefers-reduced-motion: no-preference) {
+    .spinningHead-6 {
+      animation: spinningHead-spin-6 infinite 20s linear;
+    }
+  }
+
+  @keyframes spinningHead-spin-6 {
+    from {
+      transform: rotate(300deg);
+    }
+    to {
+      transform: rotate(-60deg);
+    }
+  }
