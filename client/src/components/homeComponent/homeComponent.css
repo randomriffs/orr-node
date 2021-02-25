@@ -130,7 +130,7 @@
     pointer-events: none;
     position: fixed;
     right: 40px;
-    bottom: 40vh;
+    bottom: 30vh;
   }
   
   @media (prefers-reduced-motion: no-preference) {
