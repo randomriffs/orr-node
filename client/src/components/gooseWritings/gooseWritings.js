@@ -4,6 +4,7 @@ import { List } from 'react-content-loader';
 import './gooseWritings.css'
 import FooterComponent from '../footer/footerComponent';
 import Footer from '../footer/footerComponent';
+import { SplitColorChannelText } from 'react-text-fun';
 
 export default class GooseWritings extends Component {
     state = {
@@ -27,15 +28,23 @@ export default class GooseWritings extends Component {
                 {
                     this.state.gooseLoading ?
                         <div className="gooseLoader">
-                           <h1>@goosewritings...</h1>
+                            <h1>@goosewritings...</h1>
                         </div> :
                         <div className='activeFadeIn'>
-                            <h1>Goose commandment</h1>
+                            <SplitColorChannelText
+                                text="Goose commandment"
+                                fontSize={120}
+                                rotation={5.0}
+                                rgbOffset={0.8}
+                                addBlur={false}
+                                addNoise={true}
+                            />
+                            {/* <h1></h1> */}
                             <ol className="commands">
                                 {
 
                                     Object.keys(this.state.gooseData).map((eachGoose) => {
-                                        return <li><a href={`https://en.wikipedia.org/wiki/${this.state.gooseData[eachGoose].title}`} target="_blank">{this.state.gooseData[eachGoose].title}</a></li>
+                                        return <li><a href={`https://en.wikipedia.org/wiki/${this.state.gooseData[eachGoose].title}`} target="_blank">{this.state.gooseData[eachGoose].title} </a></li>
                                     })
                                 }
                             </ol>

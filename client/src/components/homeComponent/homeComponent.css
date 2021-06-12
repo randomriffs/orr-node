@@ -132,6 +132,21 @@
     right: 40px;
     bottom: 30vh;
   }
+
+  /* simps marquee */
+  .simps-img {
+    width: 20%;
+    margin-left: -100px;
+    z-index: 999999;
+    position: relative;
+    transform: rotate(
+-10deg
+);
+  }
+
+  .marqueeSimps marquee {
+    font-size: 2em;
+  }
   
   @media (prefers-reduced-motion: no-preference) {
     .App-logo {

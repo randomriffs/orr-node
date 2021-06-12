@@ -32,9 +32,12 @@ import IntroComponent from '../introComponent/introComponent';
 import TypewriterNews from '../typewriterNewsComponent/typewriterNews';
 import RandomWebPage from '../randomWebPage/randomWebPage';
 import SpinningHead from '../spinninghead/spinningHead';
+import { LiquidDistortionText } from 'react-text-fun'
+
 // Assets;
 import ExplocQR from '../../asset/explocqr.png';
 import Fakeleghorse from '../../asset/flhbgremoved.png';
+import SimpsOpen from '../../asset/removedbg/simps.png'
 
 // Stylings;
 
@@ -73,6 +76,60 @@ class HomeComponent extends Component {
         console.log('blog', blog)
         this.props.deletePostDispatch({ id: blog._id })
     }
+    randomBartQuote = () => {
+        let bartQuotes = [
+            ' I will not carve gods.',
+            'I will not spank others.',
+            'I will not aim for the head.',
+            "I will not barf unless I'm sick",
+            'I will not expose the ignorance of the faculty.',
+            "I saw nothing unusual in the teacher's lounge.",
+            "I will not conduct my own fire drills.",
+            "Funny noises are not funny.",
+            "I will not snap bras.",
+            "I will not fake seizures.",
+            "This punishment is not boring and pointless.",
+            "My name is not Dr. Death.",
+            "I will not defame New Orleans.",
+            "I will not prescribe medication.",
+            "I will not bury the new kid.",
+            "I will not teach others to fly.",
+            "I will not bring sheep to class.",
+            "A burp is not an answer.",
+            "Teacher is not a leper.",
+            "Coffee is not for kids.",
+            "I will not eat things for money.",
+            "The principal's toupee is not a Frisbee.",
+            'I will not call the principal "spud head".',
+            "Goldfish don't bounce.",
+            "Mud is not one of the 4 food groups.",
+            "No one is interested in my underpants.",
+            "I will not sell miracle cures.",
+            "I will return the seeing-eye dog.",
+            "I do not have diplomatic immunity.",
+            "I will not charge admission to the bathroom.",
+            "The cafeteria deep fryer is not a toy.",
+            "All work and no play makes Bart a dull boy.",
+            'I will not say "Springfield" just to get applause.',
+            "I am not authorized to fire substitute teachers.",
+            "My homework was not stolen by a one-armed man.",
+            "I will not go near the kindergarten turtle.",
+            "I am not deliciously saucy.",
+            "Organ transplants are best left to professionals.",
+            'The Pledge of Allegiance does not end with "Hail Satan".',
+            "I will not celebrate meaningless milestones.",
+            "There are plenty of businesses like show business.",
+            "Five days is not too long to wait for a gun.",
+            "I will not waste chalk.",
+            "I will not skateboard in the halls.",
+            "Underwear should be worn on the inside.",
+            "I will never win an Emmy.",
+            "I will not torment the emotionally frail.",
+            "I am not a 33 year-old woman.",
+        ]
+
+        return bartQuotes[Math.floor(Math.random() * bartQuotes.length - 1)];
+    }
     randomriffComponent = () => {
         return (<div className="home-container">
             {/* {
@@ -101,7 +158,19 @@ class HomeComponent extends Component {
             <div className='wave-vt'></div>
             <ChineseFont />
             <div className='wave-vt'></div>
-            {/* <BlackAComponent/> */}
+            {/* <marqjess simpg/> */}
+            <div className='marqueeSimps'>
+                <marquee width="70%" direction="left" height="100px">
+                    <LiquidDistortionText
+                        text={this.randomBartQuote()}
+                        //   fontSize={120}
+                        speed={0.6}
+                        volatility={0.02}
+                    />
+                </marquee>
+                <img className='simps-img' src={SimpsOpen}></img>
+            </div>
+            <div className='wave-vt'></div>
             <GooseWritings />
             <div className='wave-vt'></div>
             {/* <TodoComponent/> */}
@@ -116,8 +185,6 @@ class HomeComponent extends Component {
             {/* Spinning head */}
             <SpinningHead />
             <div className='wave-vt'></div>
-
-
             {/*  Random web page*/}
             <RandomWebPage />
             {/* <Footer /> */}
